@@ -1,6 +1,15 @@
-<ul class="nav nav-tabs">
-  <li role="presentation"><%= link_to "Inicio", root_path %></li>
-  <li role="presentation"><%= link_to "Nuestros Productos", nuestros_productos_path %></li>
-  <li role="presentation"><%= link_to "Comprar", comprar_path %></li>
-  <li role="presentation"><%= link_to "Contacto", contacto_path %></li>
-</ul>
+<div class="container">
+    <%= image_tag("Prana-Factory-Logo.png", :id => "logo") %>
+</div>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div>
+      <ul class="nav navbar-nav">
+        <li role="presentation"><%= link_to "Inicio", root_path %></li>
+        <li role="presentation"><%= link_to "Nuestros Productos", nuestros_productos_path %></li>
+        <li role="presentation"><%= link_to "Comprar", comprar_path %></li>
+        <li role="presentation"><%= link_to "Contacto", contacto_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav
