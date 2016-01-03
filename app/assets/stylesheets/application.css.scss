@@ -20,7 +20,11 @@
 /* universal */
 
 body {
-  padding-top: 20px;
+  padding: 20px 40px 20px 40px;
+}
+
+h1 {
+  color: #673939;
 }
 
 /* header */
@@ -31,4 +35,24 @@ body {
   margin-right: auto;
   width: 25%;
   height: 25%;
+}
+
+.navbar-default {
+  background-color: #FFFFCC;
+  margin-bottom: 5px;
+}
+
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+  > li {
+    float: none;
+    display: inline-block;
+  }
+}
+
+/* main body */
+
+.main-body {
+  margin-left: 60px;
 }
