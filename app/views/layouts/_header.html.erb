@@ -1,13 +1,14 @@
-<div class="container">
-
-</div>
-<nav class="navbar navbar-default">
-  <div class="container">
-      <ul class="nav navbar-nav">
-        <li><%= image_tag("PranaFactoryLogo-Medium.png", :id => "logo") %></li>
-        <li role="presentation"><%= link_to "INICIO", root_path %></li>
-        <li role="presentation"><%= link_to "NUESTROS PRODUCTOS", nuestros_productos_path %></li>
-        <li role="presentation"><%= link_to "COMPRAR", comprar_path %></li>
-      </ul>
+<div class="row">
+  <div class="col-xs-3 col-xs-offset-1">
+    <%= image_tag("PranaFactoryLogo-Medium.png", :id => "logo") %>
   </div>
-</nav
+  <div class="col-xs-8">
+    <nav>
+      <ul>
+        <li role="presentation"><%= link_to "Inicio", root_path %></li>
+        <li role="presentation"><%= link_to "Nuestros Productos", nuestros_productos_path %></li>
+        <li role="presentation"><%= link_to "Comprar", comprar_path %></li>
+      </ul>
+    </nav>
+  </div>
+</div>

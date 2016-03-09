@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PranaFactory</title>
+  <title>Prana Factory - Alimentos Naturales Gourmet</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-    <%= render "layouts/header" %>
-    <div class="main-body">
-      <div class="container">
-        <%= yield %>
-      </div>
+  <div class="container-fluid"
+    <div id="header">
+      <%= render "layouts/header" %>
     </div>
+    <div id="main-body">
+      <%= yield %>
+    </div>
+    <div id="footer">
+    <div>
   </div>
 </body>
 </html>
