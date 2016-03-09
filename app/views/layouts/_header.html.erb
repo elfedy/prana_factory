@@ -1,15 +1,13 @@
 <div class="container">
-    <%= image_tag("Prana-Factory-Logo.png", :id => "logo") %>
+
 </div>
 <nav class="navbar navbar-default">
   <div class="container">
-    <div>
       <ul class="nav navbar-nav">
+        <li><%= image_tag("PranaFactoryLogo-Medium.png", :id => "logo") %></li>
         <li role="presentation"><%= link_to "INICIO", root_path %></li>
         <li role="presentation"><%= link_to "NUESTROS PRODUCTOS", nuestros_productos_path %></li>
         <li role="presentation"><%= link_to "COMPRAR", comprar_path %></li>
-        <li role="presentation"><%= link_to "CONTACTO", contacto_path %></li>
       </ul>
-    </div>
   </div>
 </nav
