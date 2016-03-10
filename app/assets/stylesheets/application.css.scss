@@ -22,9 +22,13 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+#header {
+  padding: 0.5em 0;
+}
+
 #main-body {
   clear: both;
-  padding: 2em;
+  padding-bottom: 2em;
 }
 
 /* header */
@@ -32,6 +36,7 @@ body {
 #logo {
   max-width: 100%;
   float: left;
+  padding-top: 0.5em;
 }
 
 nav ul {
@@ -60,4 +65,10 @@ nav ul li a {
   display: block;
   float: right;
   padding: 0.5em;
+}
+
+/* inicio */
+
+.carousel {
+  max-width: 600px;
 }
