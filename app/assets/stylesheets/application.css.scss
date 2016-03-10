@@ -49,18 +49,14 @@ nav ul li a {
   padding: 3em;
 }
 
-/* contacto */
+/* footer */
 
-#facebook {
-  width: 3%;
-  height: 3%;
+#sn-links ul {
+  list-style-type: none;
 }
 
-#instagram {
-  width: 3%;
-  height: 3%;
-}
-
-.sn-link {
-  margin-top: 5px
+#sn-links ul li {
+  display: block;
+  float: right;
+  padding: 0.5em;
 }

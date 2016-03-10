@@ -8,6 +8,4 @@ class StaticPagesController < ApplicationController
   def comprar
   end
 
-  def contacto
-  end
 end
