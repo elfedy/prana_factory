@@ -39,12 +39,20 @@ body {
   padding-top: 0.5em;
 }
 
+@media (max-width: 970px) {
+  #logo {
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+}
+
 nav ul {
   list-style-type: none;
 }
 
 nav ul li {
-  float: right;
+  float: left;
 }
 
 nav ul li a {
