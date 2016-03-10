@@ -44,7 +44,7 @@ nav ul {
 }
 
 nav ul li {
-  float: left;
+  float: right;
 }
 
 nav ul li a {
@@ -56,9 +56,16 @@ nav ul li a {
 }
 
 /* footer */
+#copyright {
+  display: block;
+  padding: 1.5em 0;
+  float: left;
+  text-align-last: center;
+}
 
 #sn-links ul {
   list-style-type: none;
+  padding-right: 2.5em;
 }
 
 #sn-links ul li {
