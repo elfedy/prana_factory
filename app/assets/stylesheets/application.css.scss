@@ -47,21 +47,15 @@ body {
   }
 }
 
-nav ul {
-  list-style-type: none;
-}
-
-nav ul li {
-  float: left;
-}
-
-nav ul li a {
-  color: #000;
-  font-weight: bold;
-  text-transform: uppercase;
+nav div a {
   display: block;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
   padding: 3em;
 }
+
 
 /* footer */
 #copyright {
