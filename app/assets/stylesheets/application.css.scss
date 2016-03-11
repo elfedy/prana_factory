@@ -28,23 +28,23 @@ body {
 
 #main-body {
   clear: both;
-  padding-bottom: 2em;
+  padding: 3em 0;
+}
+
+#footer {
+  margin: 0 0 2em 0;
 }
 
 /* header */
 
 #logo {
   max-width: 100%;
-  float: left;
-  padding-top: 0.5em;
+  display: block;
+  margin: 1em auto 0 auto;
 }
 
-@media (max-width: 970px) {
-  #logo {
-    display: block;
-    margin: 0 auto;
-    float: none;
-  }
+nav {
+  margin: 2em 0 0 0;
 }
 
 nav div a {
@@ -53,30 +53,31 @@ nav div a {
   text-align: center;
   text-transform: uppercase;
   margin: auto;
-  padding: 3em;
+  padding: 2em;
 }
 
 
 /* footer */
+
 #copyright {
-  display: block;
-  padding: 1.5em 0;
-  float: left;
-  text-align-last: center;
+  margin: auto 0 auto 3em;
 }
 
-#sn-links ul {
-  list-style-type: none;
-  padding-right: 2.5em;
-}
-
-#sn-links ul li {
+#sn-links a {
   display: block;
   float: right;
-  padding: 0.5em;
+  margin: auto 0.5em;
 }
 
 /* inicio */
+
+#welcome-text h1 {
+  text-align: center;
+}
+
+#welcome-text h1 strong {
+  text-transform: uppercase;
+}
 
 .carousel {
   max-width: 600px;
