@@ -28,11 +28,11 @@ body {
 
 #main-body {
   clear: both;
-  padding: 3em 0;
+  margin: 1em 0;
 }
 
 #footer {
-  margin: 0 0 2em 0;
+  margin: 2em 0 2em 0;
 }
 
 /* header */
@@ -73,12 +73,26 @@ nav div a {
 
 #welcome-text h1 {
   text-align: center;
+  margin-bottom: 0.7em;
 }
 
 #welcome-text h1 strong {
   text-transform: uppercase;
 }
 
-.carousel {
+#carousel-inicio {
   max-width: 600px;
+  margin: auto;
+}
+
+/* productos */
+
+.product-image {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.product-title {
+  text-align: center;
 }
