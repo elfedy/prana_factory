@@ -32,7 +32,7 @@ body {
 }
 
 #footer {
-  margin: 2em 0 2em 0;
+  margin: 4em 0em 2em 0em;
 }
 
 /* header */
@@ -60,7 +60,11 @@ nav div a {
 /* footer */
 
 #copyright {
-  margin: auto 0 auto 3em;
+  margin: auto 0 auto -4em;
+}
+
+#sn-links {
+  margin-right: -4em;
 }
 
 #sn-links a {
@@ -87,16 +91,22 @@ nav div a {
 
 /* productos */
 
-#products-head{
+#show-products-head{
   text-align: center;
 }
 
-.product-image {
+.show-category-text {
+  margin-bottom: 2em;
+}
+
+.show-product-image {
   max-width: 100%;
   margin: auto;
   display: block;
 }
 
-.product-title {
+.show-product-title {
   text-align: center;
 }
+
+/* comprar online */
