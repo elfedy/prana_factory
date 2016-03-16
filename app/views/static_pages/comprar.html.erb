@@ -1,23 +1,47 @@
 <h1 id="buy-title">Hacé tu compra online</h1>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-7 col-offset-1">
+    <div class="col-xs-8 col-xs-offset-1">
       <div id="buy-product-list">
         <div class="row">
           <div class="buy-category-container">
             <div class="col-xs-12">
-              <h2 class="buy-category-title">Category Name</h2>
-            <div>
+              <h3 class="buy-category-title">Category Name</h3>
+            </div>
             <div class="row">
               <div class="buy-product-container">
+                <div class="col-xs-8">
+                  <%= image_tag("#", :class => "buy-product-image") %>
+                  <h4>Product Name</h4>
+                </div>
+                <div class="col-xs-4">
+                  <p class="buy-product-price">
+                    $XX
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-xs-3">
-      <div id="order">
+    <div class="col-xs-2">
+      <div class="row">
+        <div id="order">
+          <div class="col-xs-12">
+            <h2>Tu pedido</h2>
+          </div>
+          <div class="order-item-container">
+            <div class="col-xs-8">
+              <p class="order-item-name">
+                Order item name
+              </p>
+            </div>
+            <div class="col-xs-4">
+              $XX
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
