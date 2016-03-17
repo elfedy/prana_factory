@@ -17,6 +17,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+/* Classes used for alignment */
+
+
 /* General Styling */
 body {
   font-family: "Lato", sans-serif;
@@ -110,3 +113,20 @@ nav div a {
 }
 
 /* comprar online */
+
+.buy-product-container {
+  /* display: flex;
+  align-items: center; */
+}
+
+.buy-product-name-container {
+  display: inline-block;
+  vertical-align: middle;
+  float:none;
+}
+
+.buy-product-price-container {
+  display: inline-block;
+  vertical-align: middle;
+  float:none;
+}
