@@ -56,9 +56,9 @@ nav div a {
   text-align: center;
   text-transform: uppercase;
   margin: auto;
-  padding: 2em;
+  padding: 1em;
+  background-color: #eee;
 }
-
 
 /* footer */
 
@@ -114,19 +114,90 @@ nav div a {
 
 /* comprar online */
 
+.buy-category-container {
+  padding: 2em 0;
+}
+
+.buy-category-title {
+  margin-bottom: 0.5em;
+  text-indent: none;
+  padding-left: 0;
+  margin-left: -0.5em;
+}
+
 .buy-product-container {
-  /* display: flex;
-  align-items: center; */
+  margin-top: 1em;
 }
 
-.buy-product-name-container {
-  display: inline-block;
-  vertical-align: middle;
-  float:none;
+.buy-product-description-container {
+  text-align: center;
+  padding-top: 1.5em;
 }
 
-.buy-product-price-container {
+.buy-product-icon-container {
+  margin-top: 44px;
+  margin-bottom:44px;
+}
+
+.buy-product-image {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  padding: 1em 0;
+  clear: left;
+}
+
+.add-icon {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+#order {
+  position: fixed;
+  margin: auto;
+  width: 23%;
+}
+
+#order-title {
+  margin-left: -0.25em;
+}
+
+#erase-icon {
   display: inline-block;
-  vertical-align: middle;
-  float:none;
+  margin: 2em 0 0 0;
+  padding-left: .35em;
+}
+
+.order-button-container {
+  background-color: #ddd;
+}
+
+#order-button {
+  display: block;
+  color: #000;
+  background-color: #ddd;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 1em;
+}
+
+@media (max-width: 750px) {
+  .buy-category-title {
+    text-align: center;
+  }
+
+  .buy-product-description-container {
+    padding-top: 0.5em;
+  }
+
+  .buy-product-icon-container{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  #order {
+    position: inherit;
+    width: 100%;
+  }
 }
