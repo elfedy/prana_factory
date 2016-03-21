@@ -23,22 +23,24 @@
 /* General Styling */
 body {
   font-family: "Lato", sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 #header {
   padding: 0.5em 0;
 }
 
-#main-body {
-  clear: both;
-  margin: 1em 0;
-}
-
 #footer {
-  margin: 4em 0em 2em 0em;
+  padding: 2em 0em 2em 0em;
+  background-color: #fcf8e3;
 }
 
 /* header */
+
+#logo-container {
+  padding-bottom: 3em;
+}
 
 #logo {
   max-width: 100%;
@@ -46,24 +48,27 @@ body {
   margin: 1em auto 0 auto;
 }
 
-nav {
-  margin: 2em 0 0 0;
+.navigation {
+  background-color: #aec1a3;
 }
 
-nav div a {
+.navigation div a {
   display: block;
   color: #000;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin: auto;
   padding: 1em;
-  background-color: #eee;
+  /*background-color: #eee;*/
+  font-size: 1.6em;
 }
 
 /* footer */
 
 #copyright {
-  margin: auto 0 auto -4em;
+  margin: 0.2em 0 0 -4em;
+  font-size: 0.9em;
+  vertical-align: middle;
 }
 
 #sn-links {
@@ -71,15 +76,22 @@ nav div a {
 }
 
 #sn-links a {
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   float: right;
   margin: auto 0.5em;
 }
 
 /* inicio */
 
+#welcome-body {
+  clear: both;
+  padding: 3em 0 6em 0;
+}
+
 #welcome-text h1 {
   text-align: center;
+  font-size: 2.8em;
   margin-bottom: 0.7em;
 }
 
@@ -98,6 +110,26 @@ nav div a {
   text-align: center;
 }
 
+#prueba-croutons {
+  background-color: #f1f1f1;
+}
+
+.show-category-container {
+  margin-top: 1.26em;
+  margin-bottom: 1.26em;
+  padding-bottom: 1.26em;
+}
+
+.show-category-title {
+  font-size: 2.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.show-category-description {
+    font-size: 1.6em;
+}
+
 .show-category-text {
   margin-bottom: 2em;
 }
@@ -110,12 +142,14 @@ nav div a {
 
 .show-product-title {
   text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
 /* comprar online */
 
 .buy-category-container {
-  padding: 2em 0;
+  padding-bottom: 2em;
 }
 
 .buy-category-title {
@@ -123,15 +157,29 @@ nav div a {
   text-indent: none;
   padding-left: 0;
   margin-left: -0.5em;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .buy-product-container {
-  margin-top: 1em;
+  margin-top: 0em;
 }
 
 .buy-product-description-container {
   text-align: center;
   padding-top: 1.5em;
+  font-size: 1.2em;
+}
+
+.buy-product-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .buy-product-icon-container {
@@ -161,12 +209,29 @@ nav div a {
 
 #order-title {
   margin-left: -0.25em;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 #erase-icon {
   display: inline-block;
   margin: 2em 0 0 0;
   padding-left: .35em;
+}
+
+.order-item-container {
+  font-size: 0.9em
+}
+
+#order-item-name-total {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#order-item-price-total {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .order-button-container {
@@ -179,6 +244,8 @@ nav div a {
   background-color: #ddd;
   text-align: center;
   text-transform: capitalize;
+  font-size: 1.2em;
+  font-weight: bold;
   padding: 1em;
 }
 
