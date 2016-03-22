@@ -59,8 +59,16 @@ body {
   text-transform: capitalize;
   margin: auto;
   padding: 1em;
+  text-decoration: none;
   /*background-color: #eee;*/
   font-size: 1.6em;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.navigation div a:hover {
+  background-color: #86416a;
+  color: #fff;
 }
 
 /* footer */
@@ -180,6 +188,7 @@ body {
 .price {
   font-weight: bold;
   font-size: 1.2em;
+  color: #666;
 }
 
 .buy-product-icon-container {
@@ -205,6 +214,8 @@ body {
   position: fixed;
   margin: auto;
   width: 23%;
+  background-color: #ddd;
+  padding: 0.9em;
 }
 
 #order-title {
@@ -234,19 +245,16 @@ body {
   font-weight: bold;
 }
 
-.order-button-container {
-  background-color: #ddd;
-}
 
 #order-button {
   display: block;
-  color: #000;
-  background-color: #ddd;
+  color: #fff;
+  background-color: #a94442;
   text-align: center;
   text-transform: capitalize;
   font-size: 1.2em;
   font-weight: bold;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 @media (max-width: 750px) {
