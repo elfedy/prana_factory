@@ -72,6 +72,17 @@ body {
   color: #fff;
 }
 
+@media (max-width: 991px) {
+  .navigation {
+    background-color: #fff;
+  }
+
+  .navigation div a {
+    border: 1px solid #fff;
+    background-color: #aec1a3;
+  }
+}
+
 /* footer */
 
 #copyright {
@@ -98,7 +109,6 @@ body {
   background: image_url("Ensalada-Background.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  padding: 0em 0 0em 0;
   height: 500px;
   width: 100%;
 }
