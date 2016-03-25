@@ -1,42 +1,49 @@
-<div id="welcome-body">
-  <div class="row">
-    <div id="welcome-text">
-      <h1>Compartimos cosas <strong>ricas</strong> y <strong>sanas</strong> con el Mundo</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div id="welcome-info">
-      <div id="carousel-inicio" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-inicio" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-inicio" data-slide-to="1"></li>
-          </ol>
-
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <%= image_tag("WelcomeCroutons-Medium.jpg") %>
-              <div class="carousel-caption">
-                  <h2>Croutons</h2>
-              </div>
-            </div>
-            <div class="item">
-              <%= image_tag("WelcomeHamburguesas-Medium.jpg") %>
-              <div class="carousel-caption">
-                  <h2>Hamburguesas</h2>
-              </div>
-            </div>
-          </div>
-
-          <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-inicio" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-inicio" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
-        </div>
+<div class="row">
+  <div class="col-xs-12" id="welcome-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 id="welcome-text">Descubrí un mundo de cosas <strong>ricas</strong></h1>
+      </div>
+      <div class="col-xs-12">
+        <%= link_to "Conocé Nuestros Productos", nuestros_productos_path,
+        :class => "welcome-button", :id => "np-welcome-button" %>
+      </div>
+      <div class="col-xs-12">
+        <%= link_to "Realizá tu Pedido", comprar_path, :class => "welcome-button",
+         :id => "c-welcome-button" %>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- <div class="row">
+  <div id="welcome-info">
+    <div id="carousel-inicio" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-inicio" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-inicio" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag("WelcomeCroutons-Medium.jpg") %>
+            <div class="carousel-caption">
+                <h2>Croutons</h2>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("WelcomeHamburguesas-Medium.jpg") %>
+            <div class="carousel-caption">
+                <h2>Hamburguesas</h2>
+            </div>
+          </div>
+        </div>
+
+        <a class="left carousel-control" href="#carousel-inicio" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-inicio" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+  </div>
+</div> -->
