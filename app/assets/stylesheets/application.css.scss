@@ -260,13 +260,12 @@ body {
 
 #order {
   position: fixed;
-  margin: auto;
   width: 23%;
   background-color: #eee;
-  margin: 0 auto 0.9em 0.9em;
+  margin: 1.2em auto 0.9em 0.9em;
   padding: 0.5em;
   border-radius: 5px;
-  /*box-shadow: 3px 3px 3px 3px #888;*/
+  box-shadow: 3px 3px 3px #888;
 }
 
 #order-header {
