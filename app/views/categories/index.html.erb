@@ -1,5 +1,24 @@
-<h1>Categorias</h1>
-<% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
-  <%= category.description %>
-<% end %>
+<div class="row">
+  <h1>Categorias</h1>
+  <% @categories.each do |category| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2><%= category.name %></h2>
+      </div>
+      <div class="col-xs-12">
+        <h3>Descripción</h3>
+        <%= category.description %>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Productos</h3>
+        </div>
+        <% category.products.each do |product| %>
+          <div class="col-xs-12 col-md-4">
+            <h4><%= product.name %></h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+</div>
