@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'comprar'                 => 'static_pages#comprar'
 
   resources :categories
-  resources :products
+  resources :products , except: :index
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
