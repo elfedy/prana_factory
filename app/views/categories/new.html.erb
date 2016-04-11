@@ -18,3 +18,17 @@
     </div>
   <% end %>
 </div>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Productos</h3>
+    <%= link_to "Agregar Producto", new_product_path %>
+  </div>
+  <% category.products.each do |product| %>
+    <div class="col-xs-12 col-md-4">
+      <h4><%= product.name %></h4>
+      <%= link_to "Ver", product_path %>
+      <%= link_to "Editar", edit_product_path %>
+      <%= link_to "Borrar", product, method: :delete %>
+    </div>
+  <% end %>
+</div>
