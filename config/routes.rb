@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'
 
-  resources :categories
-  resources :products , except: :index
+  resources :categories do
+    resources :products, only: [:new, :create]
+  end
+
+  resources :products, only: [:destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
