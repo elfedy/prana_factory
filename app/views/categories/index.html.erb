@@ -28,6 +28,18 @@
           </div>
         <% end %>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Paquetes</h3>
+          <%= link_to "Agregar Nuevo Paquete", new_category_package_path(category) %>
+        </div>
+        <% category.packages.each do |package| %>
+          <div class="col-xs-12 col-md-4">
+            <h4><%= package.units %></h4>
+            <%= link_to "Borrar", package_path(package), method: :delete %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <% end %>
 </div>
