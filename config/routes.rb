@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'skus/index'
+
+  get 'skus/create'
+
+  get 'skus/edit'
+
+  get 'skus/update'
+
   root 'static_pages#inicio'
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'

@@ -35,7 +35,7 @@
         </div>
         <% category.packages.each do |package| %>
           <div class="col-xs-12 col-md-4">
-            <h4><%= package.units %></h4>
+            <h4><%= package.identifier %></h4>
             <%= link_to "Borrar", package_path(package), method: :delete %>
           </div>
         <% end %>

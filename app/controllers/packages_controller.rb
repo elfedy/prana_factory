@@ -16,6 +16,7 @@ class PackagesController < ApplicationController
   private
 
     def package_params
-      params.require(:package).permit(:units)
+      params.require(:package).permit(:unit, :quantity)
     end
+
 end

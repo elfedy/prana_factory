@@ -1,7 +1,9 @@
 <h1>Nuevo Paquete</h1>
 
 <%= form_for(@package, url: category_packages_path) do |f| %>
-  <%= f.label :units, "Número y Unidades del Paquete:" %>
-  <%= f.text_field :units %>
+  <%= f.label :quantity, "Cantidad:" %>
+  <%= f.text_field :quantity %>
+  <%= f.label :unit, "Unidad de Medida:" %>
+  <%= f.text_field :unit %>
   <%= f.submit "Crear Paquete" %>
 <% end %>
