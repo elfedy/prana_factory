@@ -3,5 +3,7 @@
 <%= form_for(@product, url: category_products_path) do |f| %>
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name %>
+  <%= f.label :premium, "Producto Premium" %>
+  <%= f.check_box :premium %>
   <%= f.submit "Crear Producto" %>
 <% end %>
