@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get 'comprar'                 => 'static_pages#comprar'
 
   resources :categories do
-    resources :products, only: [:new, :create]
-    resources :packages, only: [:new, :create]
+    resources :products, only: [:new, :create, :edit, :update]
+    resources :packages, only: [:new, :create, :edit, :update]
   end
 
   resources :products, only: [:destroy]
