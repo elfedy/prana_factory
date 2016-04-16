@@ -1,0 +1,9 @@
+<h1>Editar Producto</h1>
+
+<%= form_for(@product, url: category_product_path(@category, @product)) do |f| %>
+  <%= f.label :name, "Nombre" %>
+  <%= f.text_field :name %>
+  <%= f.label :premium, "Producto Premium" %>
+  <%= f.check_box :premium %>
+  <%= f.submit "Editar Producto" %>
+<% end %>
