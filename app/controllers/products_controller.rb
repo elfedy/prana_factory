@@ -5,7 +5,19 @@ class ProductsController < ApplicationController
   end
 
   def create
-    Category.find(params[:category_id]).products.create(product_params)
+    @category = Category.find(params[:category_id])
+    @product = @category.products.create(product_params)
+
+    # Create skus for all packages, using the new product
+    @category.packages.each do |package|
+      @sku = @category.skus.create(product_id: @product.id, package_id: package.id)
+      if @product.premium
+        @sku.price = package.premium_price
+      else
+        @sku.price = package.normal_price
+      end
+    end
+
     redirect_to categories_path
   end
 

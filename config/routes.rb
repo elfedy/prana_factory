@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :products, only: [:new, :create, :edit, :update]
     resources :packages, only: [:new, :create, :edit, :update]
+    resources :skus, only: [:index]
   end
 
   resources :products, only: [:destroy]
