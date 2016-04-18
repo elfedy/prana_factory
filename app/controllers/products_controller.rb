@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
       else
         @sku.price = package.normal_price
       end
+      @sku.save
     end
 
     redirect_to categories_path
