@@ -28,7 +28,19 @@ class ProductsController < ApplicationController
   end
 
   def update
-    Category.find(params[:category_id]).products.find(params[:id]).update(product_params)
+    @category = Category.find(params[:category_id])
+    @product = @category.products.find(params[:id])
+    @product.update(product_params)
+
+    # Update sku prices.
+    @product.skus.each do |sku|
+      if @product.premium
+        sku.price = sku.package.premium_price
+      else
+        sku.price = sku.package.normal_price
+      end
+      sku.save
+    end
     redirect_to categories_path
   end
 
