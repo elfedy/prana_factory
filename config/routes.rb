@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'skus/index'
-
-  get 'skus/create'
-
-  get 'skus/edit'
-
-  get 'skus/update'
-
   root 'static_pages#inicio'
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'
@@ -20,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:destroy]
   resources :packages, only: [:destroy]
+  resources :line_items, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
