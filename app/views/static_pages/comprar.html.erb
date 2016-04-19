@@ -26,7 +26,8 @@
                           </p>
                         </div>
                         <div class="col-xs-6">
-                          <%= image_tag("BuyIcon-List.png", :class => "add-icon") %>
+                          <%= link_to image_tag("BuyIcon-List.png", :class => "add-icon"),
+                              line_items_path(sku_id => sku.id), method: :post %>
                         </div>
                       </div>
                       <% end %>
@@ -56,15 +57,6 @@
                 <p class=order-item-price>$XX</p>
               </div>
             </div>
-            <div class="row order-item">
-              <div class="col-xs-9">
-                <p class="order-item-name">Order item name</p>
-              </div>
-              <div class="col-xs-3">
-                <p class=order-item-price>$XX</p>
-              </div>
-            </div>
-          </div>
           <div class="row" id="order-total">
             <div class="col-xs-9">
               <p id="order-item-name-total">Total</p>
