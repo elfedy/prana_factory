@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = @category.products.create(product_params)
 
-    # Create skus for all packages, using the new product (replace with helper method or SkuUpdater method)
+    # Create skus for all packages, using the new product (replace with helper method or SkuUpdater class method)
     @category.packages.each do |package|
       @sku = @category.skus.create(product_id: @product.id, package_id: package.id)
       if @product.premium

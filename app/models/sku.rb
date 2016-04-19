@@ -4,4 +4,6 @@ class Sku < ActiveRecord::Base
   belongs_to :category
   belongs_to :product
   belongs_to :package
+
+  has_many :line_items
 end
