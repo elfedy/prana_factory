@@ -286,9 +286,17 @@ body {
 
 #order-items {
   background-color: #ddd;
-  margin: 0.7em 0;
+  margin: 0 0 0.7em 0;
   padding: 0.7em 0.9em 0em 0.7em;
   border-radius: 5px;
+}
+
+#order-items-header {
+  margin-top: 0.7em;
+}
+.order-item-title{
+  font-size: 0.7em;
+  font-weight: bold;
 }
 
 .order-item {

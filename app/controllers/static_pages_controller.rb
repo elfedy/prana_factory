@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
 
   def comprar
     @categories = Category.all
+    @order = current_order
   end
 
 end
