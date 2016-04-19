@@ -5,7 +5,19 @@ class PackagesController < ApplicationController
   end
 
   def create
-    Category.find(params[:category_id]).packages.create(package_params)
+    @category = Category.find(params[:category_id])
+    @package = @category.packages.create(package_params)
+
+    # Create skus for all products, using the new package (replace with helper method or SkuUpdater method)
+    @category.products.each do |product|
+      @sku = @category.skus.create(product_id: product.id, package_id: @package.id)
+      if product.premium
+        @sku.price = @package.premium_price
+      else
+        @sku.price = @package.normal_price
+      end
+      @sku.save
+    end
     redirect_to categories_path
   end
 
@@ -15,7 +27,19 @@ class PackagesController < ApplicationController
   end
 
   def update
-    Category.find(params[:category_id]).packages.find(params[:id]).update(package_params)
+    @category = Category.find(params[:category_id])
+    @package = @category.packages.find(params[:id])
+    @package.update(package_params)
+
+    # Update all package's skus with new prices (replace with helper method or SkuUpdater method)
+    @package.skus.each do |sku|
+      if sku.product.premium
+        sku.price = @package.premium_price
+      else
+        sku.price = @package.normal_price
+      end
+      sku.save
+    end
     redirect_to categories_path
   end
 
