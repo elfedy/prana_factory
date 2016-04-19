@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def comprar
+    @categories = Category.all
   end
 
 end

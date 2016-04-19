@@ -3,90 +3,40 @@
   <div class="row">
     <div class="col-xs-12 col-sm-7 col-sm-offset-1">
       <div id="buy-product-list">
-        <div class="row buy-category-container">
-          <div class="col-xs-12">
-            <h3 class="buy-category-title">Hamburguesas</h3>
+        <% @categories.each do |category| %>
+          <div class="row buy-category-container">
+            <div class="col-xs-12">
+              <h3 class="buy-category-title"><%= category.name %></h3>
+            </div>
+            <div class="row">
+              <% category.products.each do |product| %>
+                <div class="col-xs-12 col-lg-6 buy-product-container">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-4 buy-product-image-container">
+                      <%= image_tag("categories/#{category.name.downcase}/#{product.name}-Buy.jpg",
+                          :class => "buy-product-image") %>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 buy-product-description-container">
+                      <h4 class="buy-product-title"><%= product.name %></h4>
+                      <% product.skus.each do |sku| %>
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <p class="buy-product-item">
+                            x<%= sku.package.identifier %> - <span class="price">$<%= sku.price %></span>
+                          </p>
+                        </div>
+                        <div class="col-xs-6">
+                          <%= image_tag("BuyIcon-List.png", :class => "add-icon") %>
+                        </div>
+                      </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-12 col-lg-6 buy-product-container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 buy-product-image-container">
-                  <%= image_tag("products/hamburguesas/HamburguesasGarbanzos-Buy.jpg", :class => "buy-product-image") %>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-description-container">
-                  <h4 class="buy-product-title">Garbanzos</h4>
-                  <p>x12u - <span class="price">$150</span></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-icon-container">
-                  <%= image_tag("BuyIcon-Small.png", :class => "add-icon") %>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-6 buy-product-container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 buy-product-image-container">
-                  <%= image_tag("products/hamburguesas/HamburguesasEspinaca-Buy.jpg", :class => "buy-product-image") %>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-description-container">
-                  <h4 class="buy-product-title">Espinaca y Queso</h4>
-                  <p>x12u - <span class="price">$150</span></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-icon-container">
-                  <%= image_tag("BuyIcon-Small.png", :class => "add-icon") %>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-6 buy-product-container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 buy-product-image-container">
-                  <%= image_tag("products/hamburguesas/HamburguesasRemolacha-Buy.jpg", :class => "buy-product-image") %>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-description-container">
-                  <h4 class="buy-product-title">Remolacha</h4>
-                  <p>x12u - <span class="price">$150</span></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-icon-container">
-                  <%= image_tag("BuyIcon-Small.png", :class => "add-icon") %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row buy-category-container">
-          <div class="col-xs-12">
-            <h3 class="buy-category-title">Croutons</h3>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-lg-6 buy-product-container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 buy-product-image-container">
-                  <%= image_tag("products/croutons/CroutonsOliva-Buy.jpg", :class => "buy-product-image") %>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-description-container">
-                  <h4 class="buy-product-title">Oliva, Ajo y Orégano</h4>
-                  <p>x5u - <span class="price">$70</span></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-icon-container">
-                  <%= image_tag("BuyIcon-Small.png", :class => "add-icon") %>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-6 buy-product-container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 buy-product-image-container">
-                  <%= image_tag("products/croutons/CroutonsRemolacha-Buy.jpg", :class => "buy-product-image") %>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-description-container">
-                  <h4 class="buy-product-title">Pan de Remolacha</h4>
-                  <p>x5u - <span class="price">$70</span></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 buy-product-icon-container">
-                  <%= image_tag("BuyIcon-Small.png", :class => "add-icon") %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-3">

@@ -231,17 +231,7 @@ body {
 .buy-product-title {
   font-weight: bold;
   font-size: 1.2em;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #666;
-}
-
-.buy-product-icon-container {
-  margin-top: 44px;
-  margin-bottom:44px;
+  text-align: left
 }
 
 .buy-product-image {
@@ -252,10 +242,19 @@ body {
   clear: left;
 }
 
+.buy-product-item {
+  font-size: 0.9em;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #666;
+}
+
 .add-icon {
   max-width: 100%;
   display: block;
-  margin: auto;
 }
 
 #order {
