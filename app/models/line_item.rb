@@ -5,4 +5,8 @@ class LineItem < ActiveRecord::Base
   def identifier
     self.sku.product.category.name + ' ' + self.sku.product.name + ' x' + self.sku.package.identifier
   end
+
+  def total_price
+    sku.price * quantity
+  end
 end

@@ -6,10 +6,13 @@ class Order < ActiveRecord::Base
     sku = Sku.find(sku_id)
     if current_item
       current_item.quantity += 1
-      current_item.price = sku.price * current_item.quantity
     else
-      current_item = line_items.build(price: sku.price, id: sku_id)
+      current_item = line_items.build(price: sku.price, sku_id: sku_id)
     end
     current_item
+  end
+
+  def total_price
+    line_items.to_a.sum { |item| item.total_price }
   end
 end
