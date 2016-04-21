@@ -42,56 +42,7 @@
     </div>
     <div class="col-xs-12 col-sm-3">
       <div class="row" id="order">
-        <div class="row" id="order-header">
-          <div class="col-xs-8">
-            <h2 id="order-title">Tu pedido</h2>
-          </div>
-        </div>
-        <div id="order-body">
-          <div class="row" id="order-items-header">
-              <div class="col-xs-6">
-                <p class="order-item-title">Producto</p>
-              </div>
-              <div class="col-xs-3">
-                <p class="order-item-title">Cantidad</p>
-              </div>
-              <div class="col-xs-3">
-                <p class="order-item-title">Precio</p>
-            </div>
-          </div>
-          <div class="row" id="order-items">
-            <% @order.line_items.each do |line_item| %>
-              <div class="row order-item">
-                <div class="col-xs-6">
-                  <p class="order-item-name"><%= line_item.identifier %></p>
-                </div>
-                <div class="col-xs-3">
-                  <p class=order-item-price>x<%= line_item.quantity %></p>
-                </div>
-                <div class="col-xs-3">
-                  <p class=order-item-price>$<%= line_item.total_price %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <div class="row" id="order-total">
-            <div class="col-xs-9">
-              <p id="order-item-name-total">Total</p>
-            </div>
-            <div class="col-xs=3">
-              <p id=order-item-price-total>$<%= @order.total_price %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row" id="order-footer">
-          <div class="col-xs-12 col-sm-12">
-            <%= link_to "Realizar Pedido", "#", :id => "order-button" %>
-          </div>
-          <div class="col-xs-12 col-sm-7">
-            <%= link_to "Borrar Pedido", @order, method: :delete, :confirm => "Estás seguro de borrar tu Pedido?",
-             :class => "clear-button" %>
-          </div>
-        </div>
+        <%= render @order %>
       </div>
     </div>
   </div>
