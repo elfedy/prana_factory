@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-xs-6">
                           <%= link_to image_tag("BuyIcon-List.png", :class => "add-icon"),
-                              line_items_path(:sku_id => sku.id), method: :post %>
+                              line_items_path(:sku_id => sku.id), method: :post, :remote => true %>
                         </div>
                       </div>
                       <% end %>

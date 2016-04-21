@@ -5,7 +5,10 @@ class LineItemsController < ApplicationController
     @line_item = @order.add_sku(@sku.id)
     @line_item.save
 
-    redirect_to comprar_path
+    respond_to do |format|
+       format.html { redirect_to(comprar_url) }
+       format.js
+    end
   end
 
   def destroy

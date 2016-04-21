@@ -32,7 +32,7 @@
     <%= link_to "Realizar Pedido", "#", :id => "order-button" %>
   </div>
   <div class="col-xs-12 col-sm-7">
-    <%= link_to "Borrar Pedido", order, method: :delete, :confirm => "Estás seguro de borrar tu Pedido?",
-     :class => "clear-button" %>
+    <%= link_to "Borrar Pedido", order_path(order), method: :delete, :confirm => "Estás seguro de borrar tu Pedido?",
+    :remote => true, :class => "clear-button" %>
   </div>
 </div>

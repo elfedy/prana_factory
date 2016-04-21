@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
     @order = current_order
     @order.destroy
     session[:order_id] = nil
-    redirect_to comprar_path
+
+    respond_to do |format|
+      format.html { redirect_to comprar_path }
+      format.js
+    end
   end
 end
