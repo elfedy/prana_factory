@@ -1,2 +1,36 @@
-<h1>Checkouts#new</h1>
-<p>Find me in app/views/checkouts/new.html.erb</p>
+<h1>Tu Pedido</h1>
+
+<%= form_for @checkout do |f| %>
+  <h2>Datos Personales</h2>
+  <%= f.label :name, "Nombre" %>
+  <%= f.text_field :name %>
+  <%= f.label :email, "E-mail" %>
+  <%= f.email_field :email %>
+  <%= f.label :telephone, "Teléfono" %>
+  <%= f.text_field :telephone %>
+  <%= f.label :address, "Dirección" %>
+  <%= f.text_field :address %>
+
+  <h2>Día y franja horaria de entrega</h2>
+  <%= f.label :delivery_date, "Día de Entrega" %>
+  <%= f.date_field :delivery_date %>
+  <%= f.label :delivery_time, "Franja Horaria" %>
+  <%= f.select :delivery_time, Checkout::DELIVERY_TIME_OPTIONS, :prompt => "Elejí una franja horaria"  %>
+
+  <h2>Tu pedido</h2>
+  <div class="row">
+      <div class="col-xs-6">
+        <p class="order-item-title">Producto</p>
+      </div>
+      <div class="col-xs-3">
+        <p class="order-item-title">Cantidad</p>
+      </div>
+      <div class="col-xs-3">
+        <p class="order-item-title">Precio</p>
+    </div>
+  </div>
+  <div class="row">
+    <%= render @order.line_items %>
+  </div>
+  <%= f.submit "Realizar Pedido" %>
+<% end %>

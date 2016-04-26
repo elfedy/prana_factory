@@ -29,7 +29,7 @@
 </div>
 <div class="row" id="order-footer">
   <div class="col-xs-12 col-sm-12">
-    <%= link_to "Realizar Pedido", "#", :id => "order-button" %>
+    <%= link_to "Realizar Pedido", new_checkout_path, :id => "order-button" %>
   </div>
   <div class="col-xs-12 col-sm-7">
     <%= link_to "Borrar Pedido", order_path(order), method: :delete, :confirm => "Estás seguro de borrar tu Pedido?",
