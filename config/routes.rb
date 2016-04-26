@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'checkouts/new'
-
-  get 'checkouts/create'
-
-  get 'checkouts/destroy'
-
   root 'static_pages#inicio'
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'
@@ -20,7 +14,7 @@ Rails.application.routes.draw do
   resources :packages, only: [:destroy]
   resources :orders, only: [:destroy]
   resources :line_items, only: [:create, :destroy]
-
+  resources :checkouts, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
