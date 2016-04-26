@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'checkouts/new'
+
+  get 'checkouts/create'
+
+  get 'checkouts/destroy'
+
   root 'static_pages#inicio'
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'
