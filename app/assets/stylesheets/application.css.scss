@@ -300,11 +300,13 @@ body {
 }
 
 .order-item {
+  text-align: center;
   font-size: 0.7em;
   white-space: nowrap;
 }
 
 .order-item-name{
+  font-size: 0.7em;
   text-overflow: ellipsis;
 }
 

@@ -1,24 +1,13 @@
 class OrderMailer < ApplicationMailer
+  default :from => 'info@pranafactory.com'
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.order_mailer.order_confirmation_user.subject
-  #
-  def order_confirmation_user
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def order_confirmation_user(checkout)
+    @checkout = checkout
+    mail :to => checkout.email, :subject => "PRANA FACTORY - Confirmación de Pedido"
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.order_mailer.order_confirmation_admin.subject
-  #
-  def order_confirmation_admin
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def order_confirmation_admin(checkout)
+    @checkout = checkout
+    mail to: Rails.application.secrets.order_email_address, :subject => "Pedido #{checkout.address}"
   end
 end

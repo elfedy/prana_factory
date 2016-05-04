@@ -1,5 +1,9 @@
-<h1>OrderMailer#order_confirmation_user</h1>
+<p>Hola <%= @checkout.name %></p>
 
-<p>
-  <%= @greeting %>, find me in app/views/order_mailer/order_confirmation_user.html.erb
-</p>
+<p>Tu pedido se está preparando y se entregará en <%= @checkout.address %> el día <%= @checkout.delivery_date %>
+a las <%= @checkout.delivery_time %></p>
+
+<p>Tu pedido:</p>
+<%= render @checkout.line_items %>
+
+<p>Total a pagar: <%= @checkout.total_price %></p>

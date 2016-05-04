@@ -11,6 +11,8 @@ class CheckoutsController < ApplicationController
     if @checkout.save
       Order.destroy(session[:order_id])
       session[:order_id] = nil
+      OrderMailer.order_confirmation_user(@checkout).deliver_now
+      OrderMailer.order_confirmation_admin(@checkout).deliver_now
       redirect_to comprar_path
     end
   end

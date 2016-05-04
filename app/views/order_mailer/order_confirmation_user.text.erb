@@ -1,3 +1,9 @@
-OrderMailer#order_confirmation_user
+<Hola <%= @checkout.name %>
 
-<%= @greeting %>, find me in app/views/order_mailer/order_confirmation_user.text.erb
+Tu pedido se está preparando y se entregará en <%= @checkout.address %> el día <%= @checkout.delivery_date %>
+a las <%= @checkout.delivery_time %>
+
+Tu pedido:
+<%= render @checkout.line_items %>
+
+Total a pagar: <%= @checkout.total_price %>

@@ -1,5 +1,5 @@
 <h1>Listado de Pedidos</h1>
-<div class="row">
+<div class="row checkout-attributes-title">
   <div class="col-xs-2">
     Cliente
   </div>
@@ -31,7 +31,7 @@
       <%= checkout.delivery_time %>
     </div>
     <div class="col-xs-2">
-      xxx$$$
+      <%= checkout.total_price %>
     </div>
     <div class="col-xs-2">
       <%= link_to "Ver Pedido", checkout_path(checkout) %>
