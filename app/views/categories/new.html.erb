@@ -5,6 +5,11 @@
 </div>
 <div class="row">
   <%= form_for @category do |f| %>
+    <% @category.errors.full_messages.each do |msg| %>
+      <div class="col-xs-11 col-xs-offset-1 form-error">
+        <%= msg %>
+      </div>
+    <% end %>
     <div class="col-xs-11 col-xs-offset-1">
       <%= f.label :name, "Nombre:" %>
       <%= f.text_field :name %>
