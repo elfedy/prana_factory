@@ -1,0 +1,11 @@
+<% if @category.errors.any? %>
+  <div class="col-xs-11 col-xs-offset-1 form-error">
+    <ol>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+<% end %>

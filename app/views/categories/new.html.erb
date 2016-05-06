@@ -5,9 +5,15 @@
 </div>
 <div class="row">
   <%= form_for @category do |f| %>
-    <% @category.errors.full_messages.each do |msg| %>
+    <% if @category.errors.any? %>
       <div class="col-xs-11 col-xs-offset-1 form-error">
-        <%= msg %>
+        <ol>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg %>
+            </li>
+          <% end %>
+        </ol>
       </div>
     <% end %>
     <div class="col-xs-11 col-xs-offset-1">
