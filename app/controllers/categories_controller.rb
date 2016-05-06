@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      flash[:notice] = "La categoría #{@category.name} ha sido creada"
       redirect_to categories_path
     else
       render 'new'
@@ -24,12 +25,21 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    Category.find(params[:id]).update(category_params)
-    redirect_to categories_path
+    @category = Category.find(params[:id])
+
+    if @category.update_attributes(category_params)
+      flash[:notice] = "La categoría #{@category.name} ha sido actualizada"
+      redirect_to categories_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    Category.find(params[:id]).destroy
+    @category = Category.find(params[:id])
+    @name = @category.name
+    @category.destroy
+    flash[:notice] = "La categoría #{@name} ha sido borrada"
     redirect_to categories_path
   end
 

@@ -36,11 +36,23 @@ body {
   background-color: #f1e294;
 }
 
+.flash-message {
+  background-color: #f2dede;
+  font-weight: bold;
+  margin-top: 1.2em;
+  margin-left: 0.9em;
+  padding: 0.7em;
+}
+
 .form-error {
   padding-top: 1.2em;
   padding-bottom: 1.2em;
   color: red;
   font-weight: bold;
+}
+
+.form-error ul {
+  margin-left: -0.7em;
 }
 
 /* header */
