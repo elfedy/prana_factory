@@ -6,4 +6,7 @@ class Category < ActiveRecord::Base
 
   accepts_nested_attributes_for :products
   accepts_nested_attributes_for :packages
+
+  def create_skus_when_creating_products(product)
+  end
 end

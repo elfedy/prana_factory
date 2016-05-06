@@ -1,6 +1,7 @@
 <h1>Nuevo Producto</h1>
 
 <%= form_for(@product, url: category_products_path) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name %>
   <%= f.label :premium, "Producto Premium" %>

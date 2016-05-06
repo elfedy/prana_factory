@@ -6,20 +6,24 @@ class ProductsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @product = @category.products.create(product_params)
+    @product = @category.products.new(product_params)
 
-    # Create skus for all packages, using the new product (replace with helper method or SkuUpdater class method)
-    @category.packages.each do |package|
-      @sku = @category.skus.create(product_id: @product.id, package_id: package.id)
-      if @product.premium
-        @sku.price = package.premium_price
-      else
-        @sku.price = package.normal_price
+    if @product.save
+      # Create skus for all packages, using the new product (replace with helper method or SkuUpdater class method)
+      @category.packages.each do |package|
+        @sku = @category.skus.create(product_id: @product.id, package_id: package.id)
+        if @product.premium
+          @sku.price = package.premium_price
+        else
+          @sku.price = package.normal_price
+        end
+        @sku.save
       end
-      @sku.save
+      flash[:notice] = "El producto #{@product.name} ha sido creado"
+      redirect_to categories_path
+    else
+      render "new"
     end
-
-    redirect_to categories_path
   end
 
   def edit
@@ -30,22 +34,28 @@ class ProductsController < ApplicationController
   def update
     @category = Category.find(params[:category_id])
     @product = @category.products.find(params[:id])
-    @product.update(product_params)
-
-    # Update product's sku prices with new premium attribute. (replace with helper method or SkuUpdater method)
-    @product.skus.each do |sku|
-      if @product.premium
-        sku.price = sku.package.premium_price
-      else
-        sku.price = sku.package.normal_price
+    if @product.update(product_params)
+      # Update product's sku prices with new premium attribute. (replace with helper method or SkuUpdater method)
+      @product.skus.each do |sku|
+        if @product.premium
+          sku.price = sku.package.premium_price
+        else
+          sku.price = sku.package.normal_price
+        end
+        sku.save
       end
-      sku.save
+      flash[:notice] = "El producto #{@product.name} ha sido actualizado"
+      redirect_to categories_path
+    else
+      render 'edit'
     end
-    redirect_to categories_path
   end
 
   def destroy
-    Product.find(params[:id]).destroy
+    @product = Product.find(params[:id])
+    @name = @product.name
+    @product.destroy
+    flash[:notice] = "El producto #{@name} ha sido borrado"
     redirect_to categories_path
   end
 
