@@ -9,16 +9,7 @@ class ProductsController < ApplicationController
     @product = @category.products.new(product_params)
 
     if @product.save
-      # Create skus for all packages, using the new product (replace with helper method or SkuUpdater class method)
-      @category.packages.each do |package|
-        @sku = @category.skus.create(product_id: @product.id, package_id: package.id)
-        if @product.premium
-          @sku.price = package.premium_price
-        else
-          @sku.price = package.normal_price
-        end
-        @sku.save
-      end
+      @product.create_skus
       flash[:notice] = "El producto #{@product.name} ha sido creado"
       redirect_to categories_path
     else
@@ -35,15 +26,7 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = @category.products.find(params[:id])
     if @product.update(product_params)
-      # Update product's sku prices with new premium attribute. (replace with helper method or SkuUpdater method)
-      @product.skus.each do |sku|
-        if @product.premium
-          sku.price = sku.package.premium_price
-        else
-          sku.price = sku.package.normal_price
-        end
-        sku.save
-      end
+      @product.update_skus
       flash[:notice] = "El producto #{@product.name} ha sido actualizado"
       redirect_to categories_path
     else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426124443) do
+ActiveRecord::Schema.define(version: 20160510124318) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160426124443) do
     t.datetime "updated_at",  null: false
     t.string   "description"
   end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "checkouts", force: :cascade do |t|
     t.string   "name"

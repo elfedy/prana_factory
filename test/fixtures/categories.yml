@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+valid_category:
+  name: Delicias
+  description: "Las Delicias de Pranafactory"
 
-two:
-  name: MyString
+blank_name_category:
+  name:
+  description:
+
+blank_description_category:
+  name:
+  description:

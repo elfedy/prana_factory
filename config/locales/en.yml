@@ -10,3 +10,4 @@ en:
   errors:
       messages:
         blank: "no puede estar vacío"
+        taken: "ya existe"
