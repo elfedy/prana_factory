@@ -1,6 +1,9 @@
 class Product < ActiveRecord::Base
+  VALID_NAME_REGEX = /\A[A-Z].*/
+
   validates :name, presence: true
   validates :name, uniqueness: { scope: :category_id , message: "ya existe para la categoría"}
+  validates :name, format: { with: VALID_NAME_REGEX }
 
   belongs_to :category
   has_many :skus, :dependent => :destroy
