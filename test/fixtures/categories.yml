@@ -1,13 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 valid_category:
-  name: Delicias
-  description: "Las Delicias de Pranafactory"
+  name: Cardamomo
+  description: Descripción de Ejemplo
 
-blank_name_category:
-  name:
-  description:
-
-blank_description_category:
-  name:
-  description:
+another_valid_category:
+  name: Pan de Carne
+  description: Descripción del Pan de Carne

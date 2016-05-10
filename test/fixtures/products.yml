@@ -2,12 +2,6 @@
 
 valid_product:
   name: Remolacha
-  category_id: 1
+  category: valid_category
   description: Un producto de remolacha
-  image_url: MyString
-
-invalid_product:
-  name: MyString
-  category_id: 1
-  description: MyString
   image_url: MyString
