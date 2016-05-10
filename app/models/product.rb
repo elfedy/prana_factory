@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   validates :name, presence: true
+  validates :name, uniqueness: { scope: :category_id , message: "ya existe para la categoría"}
 
   belongs_to :category
   has_many :skus, :dependent => :destroy
