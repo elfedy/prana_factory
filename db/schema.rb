@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510184521) do
+ActiveRecord::Schema.define(version: 20160511204024) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160510184521) do
     t.integer  "premium_price"
     t.integer  "normal_price"
   end
+
+  add_index "packages", ["category_id", "unit", "quantity"], name: "index_packages_on_category_id_and_unit_and_quantity", unique: true
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

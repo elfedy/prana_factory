@@ -1,8 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  category_id: 1
-
-
-two:
-  category_id: 1
+valid_package:
+  unit: u
+  quantity: 1
+  normal_price: 50
+  premium_price: 70
+  category: valid_category

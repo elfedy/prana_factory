@@ -6,6 +6,8 @@ en:
   attributes:
     name: "Nombre"
     description: "Descripción"
+    normal: "Precio Común"
+    premium_price: "Precio Premium"
 
   errors:
       messages:
