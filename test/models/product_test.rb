@@ -5,26 +5,26 @@ class ProductTest < ActiveSupport::TestCase
     @product = Product.new(name: "Producto")
   end
 
-  test "should be valid" do
+  test "is valid" do
     assert @product.valid?
   end
 
-  test "name should be present" do
+  test "is invalid without a name" do
     @product.name = "   "
     assert_not @product.valid?
   end
 
-  test "should not accept same name if in same category" do
+  test "is invalid if same name is already taken within the category" do
     same_name_product = categories(:valid_category).products.build(name: products(:valid_product).name)
     assert_not same_name_product.valid?
   end
 
-  test "should accept same name in different category" do
+  test "is valid when using the same name in different categories" do
     same_name_product = categories(:another_valid_category).products.build(name: products(:valid_product).name)
     assert same_name_product.valid?
   end
 
-  test "should accept valid names" do
+  test "is valid when name starts with a capital letter" do
     valid_names = ["Ejemplo", "Rúcula", "Cáscara de Banana"]
     valid_names.each do |valid_name|
       @product.name = valid_name
@@ -32,7 +32,7 @@ class ProductTest < ActiveSupport::TestCase
     end
   end
 
-  test "should not accept invalid names" do
+  test "is invalid if name does not start with a capital letter" do
     valid_names = ["ejemplo", "$$$", "xjdsl Cads"]
     valid_names.each do |invalid_name|
       @product.name = invalid_name
