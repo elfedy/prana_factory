@@ -12,4 +12,31 @@ class Package < ActiveRecord::Base
   def identifier
     self.quantity.to_s + self.unit
   end
+
+  def create_skus
+    if self.valid?
+      self.category.products.each do |product|
+        sku = self.category.skus.create(product_id: product.id, package_id: self.id)
+        if product.premium
+          sku.price = self.premium_price
+        else
+          sku.price = self.normal_price
+        end
+        sku.save
+      end
+    end
+  end
+
+  def update_skus
+    if self.valid?
+      self.skus.each do |sku|
+        if sku.product.premium
+          sku.price = self.premium_price
+        else
+          sku.price = self.normal_price
+        end
+        sku.save
+      end
+    end
+  end
 end

@@ -6,19 +6,15 @@ class PackagesController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @package = @category.packages.create(package_params)
+    @package = @category.packages.build(package_params)
 
-    # Create skus for all products, using the new package (replace with helper method or SkuUpdater method)
-    @category.products.each do |product|
-      @sku = @category.skus.create(product_id: product.id, package_id: @package.id)
-      if product.premium
-        @sku.price = @package.premium_price
-      else
-        @sku.price = @package.normal_price
-      end
-      @sku.save
+    if @package.save?
+      @package.create_skus
+      flash[:notice] = "El paquete #{@package.identifier} ha sido creado"
+      redirect_to categories_path
+    else
+      render "new"
     end
-    redirect_to categories_path
   end
 
   def edit
@@ -29,18 +25,14 @@ class PackagesController < ApplicationController
   def update
     @category = Category.find(params[:category_id])
     @package = @category.packages.find(params[:id])
-    @package.update(package_params)
 
-    # Update all package's skus with new prices (replace with helper method or SkuUpdater method)
-    @package.skus.each do |sku|
-      if sku.product.premium
-        sku.price = @package.premium_price
-      else
-        sku.price = @package.normal_price
-      end
-      sku.save
+    if @package.update(package_params)
+      @package.update_skus
+      flash[:notice] = "el paquete #{@package.identifier} ha sido actualizado"
+      redirect_to categories_path
+    else
+      render "edit"
     end
-    redirect_to categories_path
   end
 
   def destroy

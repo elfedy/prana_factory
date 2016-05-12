@@ -5,3 +5,8 @@ valid_product:
   category: valid_category
   description: Un producto de remolacha
   image_url: MyString
+
+valid_premium_product:
+  name: Frambuesa
+  category: valid_category
+  premium: true
