@@ -11,9 +11,9 @@ class ProductsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create product and skus when new product is valid" do
+  test "should create product and sku for each package when new product is valid" do
     assert_difference('Product.count', 1,"should create product") do
-      assert_difference('Sku.count', @category.packages.count, "should create one sku per package") do
+      assert_difference('Sku.count', @category.packages.count, "should create one sku per category package") do
         post :create, category_id: @category.id, product: { name: "New Product" }
       end
     end
@@ -28,7 +28,7 @@ class ProductsControllerTest < ActionController::TestCase
       end
     end
 
-    assert_template "new" 
+    assert_template "new"
   end
 
   test "should get edit" do

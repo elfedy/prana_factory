@@ -8,7 +8,7 @@ class PackagesController < ApplicationController
     @category = Category.find(params[:category_id])
     @package = @category.packages.build(package_params)
 
-    if @package.save?
+    if @package.save
       @package.create_skus
       flash[:notice] = "El paquete #{@package.identifier} ha sido creado"
       redirect_to categories_path

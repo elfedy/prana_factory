@@ -2,7 +2,13 @@ require 'test_helper'
 
 class PackagesControllerTest < ActionController::TestCase
   def setup
-    @product = products(:valid_product)
+    #define attributes
+    @valid_new_product_attributes = { unit: "new", quantity: "1", premium_price: 200, normal_price: 100 }
+    @valid_updated_product_attributes = { unit: "new", quantity: "2", premium_price: 300, normal_price: 250 }
+    @invalid_updated_product_attributes = { unit: "     ", premium_price: 1000, normal_price: 1000 }
+
+    #get model objects from fixtures
+    @package = packages(:valid_package)
     @category = categories(:valid_category)
   end
 
@@ -11,20 +17,20 @@ class PackagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create product and skus when new product is valid" do
-    assert_difference('Product.count', 1,"should create product") do
-      assert_difference('Sku.count', @category.packages.count, "should create one sku per package") do
-        post :create, category_id: @category.id, product: { name: "New Product" }
+  test "should create package and sku for each product when new package is valid" do
+    assert_difference('Package.count', 1,"should create package") do
+      assert_difference('Sku.count', @category.products.count, "should create one sku per category product") do
+        post :create, category_id: @category.id, package: @valid_new_product_attributes
       end
     end
 
     assert_redirected_to categories_path, "should redirect to categories path"
   end
 
-  test "should not create product nor skus when new product is invalid" do
-    assert_no_difference('Product.count', "should not create invalid product") do
-      assert_no_difference('Sku.count', "should  not create skus for invalid product") do
-        post :create, category_id: @category.id, product: { name: "   " }
+  test "should not create packages nor skus when new product is invalid" do
+    assert_no_difference('Package.count', "should not create invalid package") do
+      assert_no_difference('Sku.count', "should not create skus for invalid package") do
+        post :create, category_id: @category.id, package: { unit: "   " }
       end
     end
 
@@ -32,19 +38,41 @@ class PackagesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, category_id: @category.id, id: @product.id
+    get :edit, category_id: @category.id, id: @package.id
     assert_response :success
   end
 
-  test "should update product" do
-    patch :update, category_id: @category.id, id: @product.id, product: { name: "Updated Product"}
+  test "should update package and skus when package is valid" do
+    patch :update, category_id: @category.id, id: @package.id, package: @valid_updated_product_attributes
+    updated_package = Package.find(@package.id)
+
+    updated_package.skus.each do |sku|
+      if sku.product.premium
+        assert sku.price == updated_package.premium_price, "should update with correct sku price"
+      else
+        assert sku.price == updated_package.normal_price, "should update with correct sku price"
+      end
+    end
+
     assert_redirected_to categories_path, "should redirect to categories path"
-    assert Product.find(@product.id).name == "Updated Product", "should update product name"
   end
 
-  test "should destroy product" do
-    assert_difference('Product.count', -1, "should destroy product") do
-      delete :destroy, id: @product.id
+  test "should not update package nor skus when package is invalid" do
+    patch :update, category_id: @category.id, id: @package.id, package: @invalid_updated_product_attributes
+    updated_package = Package.find(@package.id)
+
+    assert_not updated_package.normal_price == @invalid_updated_product_attributes[:normal_price], "should not update invalid package"
+
+    updated_package.skus.each do |sku|
+      assert_not sku.price == 1000, "should not update sku when package is invalid"
+    end
+
+    assert_template "edit"
+  end
+
+  test "should destroy package" do
+    assert_difference('Package.count', -1, "should destroy product") do
+      delete :destroy, id: @package.id
     end
 
     assert_redirected_to categories_path, "should redirect to categories path"
