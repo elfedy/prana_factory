@@ -2,6 +2,11 @@ class CheckoutsController < ApplicationController
   def new
     @checkout = Checkout.new
     @order = current_order
+
+    if @order.line_items.empty?
+      flash[:error] = "Primero debes agregar productos a tu pedido"
+      redirect_to comprar_path
+    end 
   end
 
   def create
