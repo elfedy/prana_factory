@@ -2,12 +2,6 @@ require 'test_helper'
 
 class PackagesControllerTest < ActionController::TestCase
   def setup
-    #define attributes
-    @valid_new_product_attributes = { unit: "new", quantity: "1", premium_price: 200, normal_price: 100 }
-    @valid_updated_product_attributes = { unit: "new", quantity: "2", premium_price: 300, normal_price: 250 }
-    @invalid_updated_product_attributes = { unit: "     ", premium_price: 1000, normal_price: 1000 }
-
-    #get model objects from fixtures
     @package = packages(:valid_package)
     @category = categories(:valid_category)
   end
@@ -18,9 +12,10 @@ class PackagesControllerTest < ActionController::TestCase
   end
 
   test "should create package and sku for each product when new package is valid" do
+    valid_new_package_attributes = { unit: "new", quantity: "1", premium_price: 200, normal_price: 100 }
     assert_difference('Package.count', 1,"should create package") do
       assert_difference('Sku.count', @category.products.count, "should create one sku per category product") do
-        post :create, category_id: @category.id, package: @valid_new_product_attributes
+        post :create, category_id: @category.id, package: valid_new_package_attributes
       end
     end
 
@@ -43,7 +38,9 @@ class PackagesControllerTest < ActionController::TestCase
   end
 
   test "should update package and skus when package is valid" do
-    patch :update, category_id: @category.id, id: @package.id, package: @valid_updated_product_attributes
+    valid_updated_package_attributes = { unit: "new", quantity: "2", premium_price: rand(1000), normal_price: rand(1000) }
+    patch :update, category_id: @category.id, id: @package.id, package: valid_updated_package_attributes
+
     updated_package = Package.find(@package.id)
 
     updated_package.skus.each do |sku|
@@ -58,10 +55,12 @@ class PackagesControllerTest < ActionController::TestCase
   end
 
   test "should not update package nor skus when package is invalid" do
-    patch :update, category_id: @category.id, id: @package.id, package: @invalid_updated_product_attributes
+    invalid_updated_package_attributes = { unit: "     ", premium_price: 1000, normal_price: 1000 }
+
+    patch :update, category_id: @category.id, id: @package.id, package: invalid_updated_package_attributes
     updated_package = Package.find(@package.id)
 
-    assert_not updated_package.normal_price == @invalid_updated_product_attributes[:normal_price], "should not update invalid package"
+    assert_not updated_package.normal_price == invalid_updated_package_attributes[:normal_price], "should not update invalid package"
 
     updated_package.skus.each do |sku|
       assert_not sku.price == 1000, "should not update sku when package is invalid"

@@ -6,12 +6,12 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "is invalid if same name is already taken within the category" do
-    same_name_product = categories(:valid_category).products.build(name: products(:valid_product).name)
+    same_name_product = categories(:valid_category).products.build(name: products(:valid_normal_product).name)
     assert_not same_name_product.valid?
   end
 
   test "is valid when using the same name in different categories" do
-    same_name_product = categories(:another_valid_category).products.build(name: products(:valid_product).name)
+    same_name_product = categories(:another_valid_category).products.build(name: products(:valid_normal_product).name)
     assert same_name_product.valid?
   end
 

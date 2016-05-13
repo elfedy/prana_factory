@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid_product:
+valid_normal_product:
   name: Remolacha
   category: valid_category
   description: Un producto de remolacha
-  image_url: MyString
+  premium: false
 
 valid_premium_product:
   name: Frambuesa

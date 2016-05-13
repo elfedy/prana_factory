@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   def setup
-    @product = products(:valid_product)
+    @normal_product = products(:valid_normal_product)
     @category = categories(:valid_category)
   end
 
@@ -32,19 +32,39 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, category_id: @category.id, id: @product.id
+    get :edit, category_id: @category.id, id: @normal_product.id
     assert_response :success
   end
 
-  test "should update product" do
-    patch :update, category_id: @category.id, id: @product.id, product: { name: "Updated Product"}
+  test "should update product and skus when product is valid" do
+    patch :update, category_id: @category.id, id: @normal_product.id, product: { name: "Updated Product", premium: true }
+    updated_product = Product.find(@normal_product.id)
+
+    assert updated_product.name == "Updated Product", "should update product name"
+
+    updated_product.skus.each do |sku|
+        assert sku.price == sku.package.premium_price
+    end
+
     assert_redirected_to categories_path, "should redirect to categories path"
-    assert Product.find(@product.id).name == "Updated Product", "should update product name"
+  end
+
+  test "should not update product nor skus when product is invalid" do
+    patch :update, category_id: @category.id, id: @normal_product.id, product: { name: "     ", premium: true }
+    updated_product = Product.find(@normal_product.id)
+
+    assert_not updated_product.name == "     ", "should not update product name"
+
+    updated_product.skus.each do |sku|
+        assert_not sku.price == sku.package.premium_price
+    end
+
+    assert_template "edit"
   end
 
   test "should destroy product" do
     assert_difference('Product.count', -1, "should destroy product") do
-      delete :destroy, id: @product.id
+      delete :destroy, id: @normal_product.id
     end
 
     assert_redirected_to categories_path, "should redirect to categories path"

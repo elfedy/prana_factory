@@ -1,6 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid_sku:
-  product: valid_product
+valid_sku_normal_product:
+  product: valid_normal_product
   package: valid_package
   price: 50
+
+valid_sku_premium_product:
+  product: valid_premium_product
+  package: valid_premium_package
+  price: 70
