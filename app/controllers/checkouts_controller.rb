@@ -6,19 +6,34 @@ class CheckoutsController < ApplicationController
     if @order.line_items.empty?
       flash[:error] = "Primero debes agregar productos a tu pedido"
       redirect_to comprar_path
-    end 
+    end
   end
 
   def create
     @checkout = Checkout.new(checkout_params)
     @checkout.add_line_items_from_order(current_order)
 
-    if @checkout.save
-      Order.destroy(session[:order_id])
-      session[:order_id] = nil
-      OrderMailer.order_confirmation_user(@checkout).deliver_now
-      OrderMailer.order_confirmation_admin(@checkout).deliver_now
-      redirect_to comprar_path
+    if @checkout.valid?
+      if @checkout.delivery_date > Date.today
+        if @checkout.save
+          Order.destroy(session[:order_id])
+          session[:order_id] = nil
+          OrderMailer.order_confirmation_user(@checkout).deliver_now
+          OrderMailer.order_confirmation_admin(@checkout).deliver_now
+          flash[:notice] = "Tu pedido se ha realizado con éxito"
+          redirect_to comprar_path
+        else
+          @order = current_order
+          render "new"
+        end
+      else
+        flash[:error] = "La fecha de entrega debe ser a partir de mañana"
+        @order = current_order
+        render "new"
+      end
+    else
+      @order = current_order
+      render "new"
     end
   end
 

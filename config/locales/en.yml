@@ -8,6 +8,8 @@ en:
     description: "Descripción"
     normal: "Precio Común"
     premium_price: "Precio Premium"
+    telephone: "Teléfono"
+    address: "Dirección"
 
   errors:
       messages:

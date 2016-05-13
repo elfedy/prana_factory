@@ -1,6 +1,7 @@
 <h1>Tu Pedido</h1>
 
 <%= form_for @checkout do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <h2>Datos Personales</h2>
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name %>
