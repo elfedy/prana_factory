@@ -68,7 +68,7 @@ body {
 }
 
 .navigation {
-  background-color: #aec1a3;
+  background-color: #93973c;
 }
 
 .navigation div a {
@@ -81,7 +81,7 @@ body {
   /*background-color: #eee;*/
   font-size: 1.2em;
   font-weight: bold;
-  color: #222;
+  color: #fff;
   transition-property: background-color;
   transition-duration: 0.3s;
 }
@@ -152,8 +152,8 @@ body {
 
 .welcome-button {
   display: block;
-  color: #fff;
-  background-color: rgba(123,67,114,0.9);
+  color: #000;
+  background-color: rgba(220,220,195,0.7);
   border-radius: 5px;
   text-align: center;
   text-transform: capitalize;
@@ -169,8 +169,8 @@ body {
 
 .welcome-button:hover {
   text-decoration: none;
-  color: #fff;
-  background-color: rgb(196,92,156);
+  color: #000;
+  background-color: rgba(220,220,195,1)
 }
 
 

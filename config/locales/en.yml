@@ -10,6 +10,8 @@ en:
     premium_price: "Precio Premium"
     telephone: "Teléfono"
     address: "Dirección"
+    delivery_date: "Fecha de Entrega"
+    delivery_time: "Franja Horaria"
 
   errors:
       messages:
