@@ -3,6 +3,9 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.new
     @order = current_order
 
+    # Temporary solution to redirect to comprar page if no line items are in the order.
+    # Final solution eill involve Ajax behaviour, disabling the button that links to the
+    # checkouts new action, when there are no line items in the order.
     if @order.line_items.empty?
       flash[:error] = "Primero debes agregar productos a tu pedido"
       redirect_to comprar_path

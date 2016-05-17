@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   def create_skus
     if self.valid?
       self.category.packages.each do |package|
-        sku = self.category.skus.create(product_id: self.id, package_id: package.id)
+        sku = self.category.skus.build(product_id: self.id, package_id: package.id)
         if self.premium
           sku.price = package.premium_price
         else

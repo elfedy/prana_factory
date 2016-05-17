@@ -37,7 +37,9 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product and skus when product is valid" do
-    patch :update, category_id: @category.id, id: @normal_product.id, product: { name: "Updated Product", premium: true }
+    patch :update, category_id: @category.id, id: @normal_product.id,
+          product: { name: "Updated Product", premium: true }
+
     updated_product = Product.find(@normal_product.id)
 
     assert updated_product.name == "Updated Product", "should update product name"

@@ -2,7 +2,7 @@ class Sku < ActiveRecord::Base
   default_scope { order(product_id: :asc) }
 
   validates :product_id, :package_id, presence: true
-  validates_associated :products, :packages
+  validates_associated :product, :package
 
   belongs_to :category
   belongs_to :product
