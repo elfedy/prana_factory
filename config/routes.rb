@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'admin' => 'admin_pages#admin'
+  get 'admins/index'
+
+  get 'admins/actions'
+
+  get 'actions' => 'admin_pages#actions'
 
   root 'static_pages#inicio'
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
@@ -17,6 +21,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:destroy]
   resources :line_items, only: [:create, :destroy]
   resources :checkouts, except: [:edit]
+
+  resources :admins, only: [:index, :new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
