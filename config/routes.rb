@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get 'nuestros_productos'      => 'static_pages#nuestros_productos'
   get 'comprar'                 => 'static_pages#comprar'
 
+  get 'prana_admin_login'     => 'sessions#new'
+  post 'prana_admin_login'    => 'sessions#create'
+  delete 'prana_admin_logout' => 'sessions#destroy'
+
   resources :categories do
     resources :products, only: [:new, :create, :edit, :update]
     resources :packages, only: [:new, :create, :edit, :update]
