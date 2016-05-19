@@ -17,3 +17,4 @@ en:
       messages:
         blank: "no puede estar vacío"
         taken: "ya existe"
+        invalid: "debe tener un formato válido"
