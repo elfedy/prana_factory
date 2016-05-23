@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
       order
     end
 
+    def logged_in_admin
+      unless admin_logged_in?
+        redirect_to root_path
+      end
+    end
 end

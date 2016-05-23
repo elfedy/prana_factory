@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  before_action :logged_in_admin
+
   def index
     @admins = Admin.all
   end

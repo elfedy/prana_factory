@@ -1,4 +1,5 @@
 class PackagesController < ApplicationController
+  before_action :logged_in_admin
 
   def new
     @package = Package.new

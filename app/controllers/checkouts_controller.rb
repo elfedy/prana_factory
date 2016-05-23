@@ -1,4 +1,6 @@
 class CheckoutsController < ApplicationController
+  before_action :logged_in_admin, only: [:index, :show]
+
   def new
     @checkout = Checkout.new
     @order = current_order

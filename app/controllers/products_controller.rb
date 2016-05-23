@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_admin
 
   def new
     @product = Product.new
