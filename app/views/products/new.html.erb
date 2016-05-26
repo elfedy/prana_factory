@@ -2,9 +2,17 @@
 
 <%= form_for(@product, url: category_products_path) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name %>
+
   <%= f.label :premium, "Producto Premium" %>
   <%= f.check_box :premium %>
+
+  <br />
+
+  <%= f.label :image, "Imagen" %>
+  <%= f.file_field :image %>
+
   <%= f.submit "Crear Producto" %>
 <% end %>

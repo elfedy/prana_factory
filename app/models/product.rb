@@ -8,6 +8,11 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :skus, :dependent => :destroy
 
+  has_attached_file :image, styles: { buy: "100x127", show:"200x254"  }
+  validates_attachment :image,
+                     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
+
   def create_skus
     if self.valid?
       self.category.packages.each do |package|
