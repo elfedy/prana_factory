@@ -6,9 +6,11 @@
       </div>
     </div>
 
-    <div class="row show-category-body">
-      <div class="col-xs-12">
-        <p class="show-category-description"><%= category.description %></p>
+    <div class="row">
+      <div class="col-xs-12 show-category-body" style="background: <%= image_url(category.image) %>">
+        <p class="show-category-description">
+          <%= category.description %>
+        </p>
       </div>
     </div>
 

@@ -10,6 +10,10 @@ class Category < ActiveRecord::Base
   has_many :packages
   has_many :skus
 
+  has_attached_file :image, styles: { show:"700x700" }
+  validates_attachment :image,
+                     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
   accepts_nested_attributes_for :products
   accepts_nested_attributes_for :packages
 end
