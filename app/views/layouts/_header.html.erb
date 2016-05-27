@@ -1,20 +1,25 @@
-<div id="header">
-  <div class="row" id="logo-container">
-    <div class="col-xs-4">
-      <%= image_tag("PranaFactoryLogo-Header.png", :id => "logo") %>
-    </div>
-    <div class="col-xs-4 col-xs-offset-4">
-      <% if admin_logged_in? %>
-        <p>Administrador <%= current_admin.name %></p>
-        <%= link_to "Inicio", admins_actions_path %>
-        <%= link_to "Categorías", categories_path %>
-        <%= link_to "Pedidos", checkouts_path %>
-        <%= link_to "Cerrar Sesión", prana_admin_logout_path, method: :delete %>
-      <% end %>
-    </div>
+<div class="row" id="header">
+  <div class="col-xs-4 col-xs-offset-1">
+    <%= link_to image_tag("PranaFactoryLogo-Header.png", :id => "logo"), root_path %>
   </div>
 
-  <div class="row navigation">
+  <div class="col-xs-2">
+    <% if admin_logged_in? %>
+      <p>Administrador <%= current_admin.name %></p>
+      <%= link_to "Inicio", admins_actions_path %>
+      <%= link_to "Categorías", categories_path %>
+      <%= link_to "Pedidos", checkouts_path %>
+      <%= link_to "Cerrar Sesión", prana_admin_logout_path, method: :delete %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-3 col-xs-offset-1" id="sn-links">
+    <%= link_to image_tag("FacebookLogo-Small.png"), "https://www.facebook.com/pranafactory/" %>
+    <%= link_to image_tag("InstagramLogo-Small.png"), "https://www.instagram.com/pranafactory/" %>
+  </div>
+</div>
+
+  <!-- <div class="row navigation">
     <div class="col-xs-12 col-md-3 col-md-offset-1 navigation-link">
       <%= link_to "Inicio", root_path %>
     </div>
@@ -24,5 +29,4 @@
     <div class="col-xs-12 col-md-3 navigation-link">
       <%= link_to "Comprar Online", comprar_path %>
     </div>
-  </div>
-</div>
+  </div> -->

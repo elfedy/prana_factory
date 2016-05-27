@@ -28,7 +28,8 @@ body {
 }
 
 #header {
-  /*margin: 0.5em 0;*/
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
 }
 
 #footer {
@@ -64,7 +65,18 @@ body {
 #logo {
   max-width: 100%;
   display: block;
-  margin: 0.9em auto 0em auto;
+}
+
+#sn-links {
+  padding-top: 1.2em;
+}
+
+#sn-links a {
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  margin-right: 0.5em;
+
 }
 
 .navigation {
@@ -107,25 +119,6 @@ body {
   }
 }
 
-/* footer */
-
-#copyright {
-  margin: 0.2em 0 0 -4em;
-  font-size: 0.9em;
-  vertical-align: middle;
-}
-
-#sn-links {
-  margin-right: -4em;
-}
-
-#sn-links a {
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
-  margin: auto 0.5em;
-}
-
 /* inicio */
 
 #welcome-body {
@@ -140,7 +133,7 @@ body {
 #welcome-text {
   text-align: center;
   font-size: 2.8em;
-  margin: 1.6em 0 1.2em 0;
+  margin: 2.8em 0 1.2em 0;
   padding: 0.9em;
   color: #fff;
   background-color: rgba(60,60,60,0.8)
