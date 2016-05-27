@@ -4,16 +4,24 @@
   </div>
 </div>
 <div class="row">
-  <%= form_for @category do |f| %>
+  <%= form_for @category, html: { multipart: true } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+
     <div class="col-xs-11 col-xs-offset-1">
       <%= f.label :name, "Nombre:" %>
       <%= f.text_field :name %>
     </div>
+
     <div class="col-xs-11 col-xs-offset-1">
       <%= f.label :description, "Descripción:" %>
       <%= f.text_area :description %>
     </div>
+
+    <div class="col-xs-11 col-xs-offset-1">
+      <%= f.label :image, "Imagen:" %>
+      <%= f.file_field :image %>
+    </div>
+
     <div class="col-xs-11 col-xs-offset-1">
       <%= f.submit "Crear", class: "create_button" %>
     </div>

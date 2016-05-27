@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
   has_many :packages
   has_many :skus
 
-  has_attached_file :image, styles: { show:"700x700" }
+  has_attached_file :image, styles: { show:"400x400" }
   validates_attachment :image,
                      content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
