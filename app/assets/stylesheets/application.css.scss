@@ -16,6 +16,7 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
 
 /* Classes used for alignment */
 
@@ -67,40 +68,44 @@ body {
   display: block;
 }
 
+.nav-link {
+  color: #000;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  float: left;
+  padding: 0.9em;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.nav-link:hover {
+  color: #6e986f;
+  text-decoration: none;
+}
+
+.nav-link-first {
+  border-left: 2px solid black;
+}
+
+.nav-link-last {
+  border-right: 2px solid black;
+}
+
 #sn-links {
   padding-top: 1.2em;
 }
 
-#sn-links a {
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
-  margin-right: 0.5em;
-
-}
-
-.navigation {
-  background-color: #93973c;
-}
-
-.navigation div a {
+.sn-link {
   display: block;
-  text-align: center;
-  text-transform: capitalize;
-  margin: auto;
-  padding: 0.9em;
-  text-decoration: none;
-  /*background-color: #eee;*/
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #fff;
-  transition-property: background-color;
-  transition-duration: 0.3s;
+  float: right;
+  color: #000;
+  margin-right: 0.5em;
 }
 
-.navigation div a:hover, navigation div a:focus {
-  background-color: #86416a;
-  color: #fff;
+.sn-link:hover {
+  color: #6e986f;
 }
 
 @media (max-width: 991px) {

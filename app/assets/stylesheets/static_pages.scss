@@ -186,8 +186,11 @@
 }
 
 .add-icon {
-  max-width: 100%;
-  display: block;
+  color: #000;
+}
+
+.add-icon:hover {
+  color: #6e986f;
 }
 
 #order {
