@@ -53,44 +53,21 @@
 }
 
 
-#carousel-inicio {
-  max-width: 600px;
-  margin: auto;
-}
-
-
-
 /* nuestros productos */
 
-#prueba-croutons {
-  background-color: #f1f1f1;
-}
-
-
-#show-header-title {
-  font-size: 3.7em;
-  text-transform: uppercase;
-  color: #6e986f;
-}
-
-.show-header {
-  padding: 5em 0;
-}
-
 .show-category-container {
-  margin-top: 1.26em;
   margin-bottom: 1.26em;
   padding-bottom: 1.26em;
 }
 
 
 .show-category-title-container {
-  border-bottom: 4px solid black;
+  border-bottom: 2px solid black;
 }
 
 .show-category-title {
-  margin-left: 0px;
-  font-size: 2.8em;
+  margin-left: -0.5em;
+  font-size: 2.1em;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -116,7 +93,7 @@
 
 .show-category-products-title {
   font-weight: bold;
-  color: #666;
+  color: #777;
 }
 
 .show-category-product-container {
@@ -141,14 +118,24 @@
   padding-bottom: 2em;
 }
 
+.buy-category-title-container {
+  border-bottom: 2px solid black;
+  margin-bottom: 1.6em;
+}
+
 .buy-category-title {
-  margin-bottom: 0.5em;
-  text-indent: none;
-  padding-left: 0;
-  margin-left: -0.5em;
   font-size: 2.1em;
   font-weight: bold;
   text-transform: uppercase;
+  margin-left: -0.5em;
+}
+
+.buy-intro-text {
+  font-size: 1.2em;
+}
+
+.buy-intro-text ul li {
+  font-size: 1.2em;
 }
 
 .buy-product-container {
@@ -235,19 +222,22 @@
   font-weight: bold;
 }
 
+.order-item-title-price {
+  margin-left: -1.6em;
+}
+
+
 .order-item {
-  text-align: center;
   font-size: 0.7em;
   white-space: nowrap;
 }
 
-.order-item-name{
+.order-item-name {
   font-size: 0.7em;
   text-overflow: ellipsis;
 }
 
 .order-item-price {
-  text-align: center;
 }
 
 #order-total {

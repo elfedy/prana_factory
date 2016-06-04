@@ -1,11 +1,9 @@
 <% if object.errors.any? %>
-  <div class="col-xs-11 col-xs-offset-1 form-error">
-    <ul>
+  <div class="row error-messages-container">
       <% object.errors.full_messages.each do |msg| %>
-        <li>
-          <%= msg %>
-        </li>
+        <div class="col-xs-10 col-xs-offset-1">
+          <%= content_tag :div, msg, class: "error-message" %>
+        </div>
       <% end %>
-    </ul>
   </div>
 <% end %>

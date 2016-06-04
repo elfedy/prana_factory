@@ -3,6 +3,7 @@ class CheckoutsController < ApplicationController
 
   def new
     @checkout = Checkout.new
+    @base_date = define_base_date
     @order = current_order
 
     # Temporary solution to redirect to comprar page if no line items are in the order.
@@ -15,11 +16,12 @@ class CheckoutsController < ApplicationController
   end
 
   def create
+    @base_date = define_base_date
     @checkout = Checkout.new(checkout_params)
     @checkout.add_line_items_from_order(current_order)
 
     if @checkout.valid?
-      if @checkout.delivery_date > Date.today
+      if @checkout.delivery_date >= @base_date
         if @checkout.save
           Order.destroy(session[:order_id])
           session[:order_id] = nil
@@ -32,7 +34,7 @@ class CheckoutsController < ApplicationController
           render "new"
         end
       else
-        flash[:error] = "La fecha de entrega debe ser a partir de mañana"
+        flash[:error] = "La fecha de entrega puede ser a partir del #{@base_date}"
         @order = current_order
         render "new"
       end
@@ -56,6 +58,14 @@ class CheckoutsController < ApplicationController
   private
     def checkout_params
       params.require(:checkout).permit(:name, :email, :address, :telephone, :delivery_date, :delivery_time)
+    end
+
+    def define_base_date
+      base_date = Date.today + 1
+      if base_date.wday == 0
+        base_date += 1
+      end
+      return base_date
     end
 
 end

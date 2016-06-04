@@ -7,7 +7,7 @@ class Checkout < ActiveRecord::Base
 
   has_many :line_items, :dependent => :destroy
 
-  DELIVERY_TIME_OPTIONS = [ "9:00h a 12:00h", "12:00h a 15:00h", "15:00h a 18:00h", "18:00h a 21:00h"]
+  DELIVERY_TIME_OPTIONS = [ "10:00h a 13:00h", "19:00h a 22:00h" ]
 
   def add_line_items_from_order(order)
     order.line_items.each do |item|

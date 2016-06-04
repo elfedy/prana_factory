@@ -1,37 +1,129 @@
-<h1>Tu Pedido</h1>
+<%= render 'shared/error_messages', object: @checkout %>
 
-<%= form_for @checkout do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <h2>Datos Personales</h2>
-  <%= f.label :name, "Nombre" %>
-  <%= f.text_field :name %>
-  <%= f.label :email, "E-mail" %>
-  <%= f.email_field :email %>
-  <%= f.label :telephone, "Teléfono" %>
-  <%= f.text_field :telephone %>
-  <%= f.label :address, "Dirección" %>
-  <%= f.text_field :address %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h1 class="section-title">Completá los datos de tu pedido</h1>
+  </div>
 
-  <h2>Día y franja horaria de entrega</h2>
-  <%= f.label :delivery_date, "Día de Entrega" %>
-  <%= f.date_field :delivery_date %>
-  <%= f.label :delivery_time, "Franja Horaria" %>
-  <%= f.select :delivery_time, Checkout::DELIVERY_TIME_OPTIONS, :prompt => "Elejí una franja horaria"  %>
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <%= form_for @checkout do |f| %>
 
-  <h2>Tu pedido</h2>
-  <div class="row">
-      <div class="col-xs-6">
-        <p class="order-item-title">Producto</p>
+        <div class="col-xs-12">
+
+          <div class="row">
+            <div class="col-xs-7 checkout-form-title-container">
+              <h2>Datos Personales</h2>
+            </div>
+          </div>
+
+          <div class="checkout-personal-data">
+            <div class="form-group">
+              <%= f.label :name, "Nombre" %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email, "E-mail" %>
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :telephone, "Teléfono" %>
+              <%= f.text_field :telephone, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :address, "Dirección de entrega" %>
+              <%= f.text_field :address, class: "form-control", placeholder: "Sólo Capital Federal" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-7 checkout-form-title-container">
+              <h2>Día y franja horaria de entrega</h2>
+            </div>
+          </div>
+
+          <p>Hacemos entregas de Lunes a Sábados en <strong>dos franjas horarias:</strong></p>
+          <ul>
+            <li>Entre las <strong>10:00hs y las 13:00hs</strong></li>
+            <li>Entre las <strong>19:00hs y las 22:00hs</strong></li>
+          </ul>
+          <p class="text-warning">
+            Los pedidos deben realizarse por lo menos con <strong>un día de anticipación.</strong>
+          </p>
+          <div class="checkout-delivery-data">
+            <div class="form-group">
+              <%= f.label :delivery_date, "Día de Entrega" %>
+              <%= f.date_field :delivery_date, class: "form-control", value: @base_date %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :delivery_time, "Franja Horaria" %>
+              <%= f.select(:delivery_time, Checkout::DELIVERY_TIME_OPTIONS, {},
+                  { class: "form-control" })  %>
+            </div>
+          </div>
+
       </div>
-      <div class="col-xs-3">
-        <p class="order-item-title">Cantidad</p>
-      </div>
-      <div class="col-xs-3">
-        <p class="order-item-title">Precio</p>
+        <div class="col-xs-12">
+          <div id="checkout-order">
+
+            <div class="col-xs-7 checkout-form-title-container">
+              <h2>Tu pedido</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                  <h3 class="checkout-item-title">Producto</h3>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <h3 class="checkout-item-title">Cantidad</h3>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <h3 class="checkout-item-title">Precio</h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <% @order.line_items.each do |line_item| %>
+                <div class="col-xs-6 checkout-item-field-container">
+                  <p class="checkout-item-field">
+                    <%= line_item.identifier %>
+                  </p>
+                </div>
+                <div class="col-xs-3 checkout-item-field-container text-center">
+                  <p class="checkout-item-field">
+                    <%= line_item.quantity %>
+                  </p>
+                </div>
+                <div class="col-xs-3 checkout-item-field-container text-center">
+                  <p class="checkout-item-field">
+                    $<%= line_item.price %>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="row checkout-total-container">
+              <div class="col-xs-6 checkout-total-title-container">
+                <p class="checkout-total-title">Total</p>
+              </div>
+              <div class="col-xs-3 col-xs-offset-3 text-center checkout-total-field-container">
+                <p class="checkout-total-field">$<%= @order.total_price %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.submit "Realizar Pedido", id: "checkout-submit-button" %>
+        </div>
+      <% end %>
     </div>
+
   </div>
-  <div class="row">
-    <%= render @order.line_items %>
-  </div>
-  <%= f.submit "Realizar Pedido" %>
-<% end %>
+</div>

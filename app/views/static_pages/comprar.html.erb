@@ -1,11 +1,24 @@
 <!-- <h1 id="buy-title">Hacé tu compra online</h1> -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+    <div class="col-xs-11 col-xs-offset-1 section-title-container">
+      <h1 class="section-title">Elegí lo que más te guste....</h1>
+      <p class="section-subtitle">Nosotros te lo llevamos a tu casa.</p>
+    </div>
+    <div class="col-xs-11 col-xs-offset-1">
+
+      <p class="buy-intro-text">A tener en cuenta:</p>
+      <ul>
+        <li><strong>Sólo</strong> hacemos entregas en <strong>Capital Federal</strong></li>
+        <li>El <strong>pedido mínimo</strong> es de <strong>$100</strong></li>
+      </ul>
+    </div>
+
+    <div class="col-xs-11 col-sm-7 col-sm-offset-1">
       <div id="buy-product-list">
         <% @categories.each do |category| %>
           <div class="row buy-category-container">
-            <div class="col-xs-12">
+            <div class="col-xs-12 buy-category-title-container">
               <h3 class="buy-category-title"><%= category.name %></h3>
             </div>
             <div class="row">

@@ -2,6 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.icon {
+  display: inline-block;
+  float: left;
+}
+
+
 .checkout-attributes-title {
   font-weight: bold;
+}
+
+.checkout-personal-data {
+  max-width: 300px;
+}
+
+.checkout-form-title-container {
+  border-bottom: 2px solid black;
+  margin-bottom: 1.6em;
+}
+
+.checkout-form-title-container h2 {
+  font-size: 2.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: -0.5em;
+}
+
+.checkout-delivery-data {
+  max-width: 300px;
+}
+
+.checkout-item-title {
+  text-indent: 0px;
+  margin-left: 0px;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.checkout-item-field {
+  font-size: 1.2em;
+}
+
+.checkout-total-container {
+  margin-top: 1.2em;
+  padding-top: 0.5em;
+//  border-radius: 5px;
+//  background-color: #ddd;
+}
+
+.checkout-total-title-container {
+  padding-left: 0em;
+}
+
+.checkout-total-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-indent: none;
+  vertical-align: text-top;
+}
+
+.checkout-total-field {
+  font-size: 1.6em;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+#checkout-submit-button {
+  font-family: "Lato", sans-serif;
+  display: block;
+  color: #fff;
+  background-color: #a94442;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.7em 0.9em;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  box-shadow: 0 0 0 0;
+  margin-top: 1.2em;
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+#checkout-submit-button:hover {
+  background-color: #bd4340;
 }
