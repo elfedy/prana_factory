@@ -1,5 +1,6 @@
 class CheckoutsController < ApplicationController
   before_action :logged_in_admin, only: [:index, :show]
+  before_action :check_min_order_total_price, only: [:new]
 
   def new
     @checkout = Checkout.new
@@ -7,7 +8,7 @@ class CheckoutsController < ApplicationController
     @order = current_order
 
     # Temporary solution to redirect to comprar page if no line items are in the order.
-    # Final solution eill involve Ajax behaviour, disabling the button that links to the
+    # Final solution will involve Ajax behaviour, disabling the button that links to the
     # checkouts new action, when there are no line items in the order.
     if @order.line_items.empty?
       flash[:error] = "Primero debes agregar productos a tu pedido"
@@ -66,6 +67,13 @@ class CheckoutsController < ApplicationController
         base_date += 1
       end
       return base_date
+    end
+
+    def check_min_order_total_price
+      if current_order.total_price < Checkout::MIN_CHECKOUT_PRICE
+        flash[:error] = "El pedido mínimo es de $#{Checkout::MIN_CHECKOUT_PRICE}"
+        redirect_to comprar_path
+      end
     end
 
 end

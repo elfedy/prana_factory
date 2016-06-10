@@ -6,7 +6,7 @@ Dirección:        <%= @checkout.address %>
 Teléfono:         <%= @checkout.telephone %>
 Dia de entrega:   <%= @checkout.delivery_date %>
 Franja horaria:   <%= @checkout.delivery_time %>
-Monto Total:      <%= @checkout.total_price %>
+Monto Total:      $<%= @checkout.total_price %>
 
 Pedido
 <%= render @checkout.line_items %>

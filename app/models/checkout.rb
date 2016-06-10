@@ -8,6 +8,7 @@ class Checkout < ActiveRecord::Base
   has_many :line_items, :dependent => :destroy
 
   DELIVERY_TIME_OPTIONS = [ "10:00h a 13:00h", "19:00h a 22:00h" ]
+  MIN_CHECKOUT_PRICE = 100
 
   def add_line_items_from_order(order)
     order.line_items.each do |item|
