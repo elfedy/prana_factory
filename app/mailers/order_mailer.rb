@@ -10,7 +10,7 @@ class OrderMailer < ApplicationMailer
 
   def order_confirmation_admin(checkout)
     @checkout = checkout
-    mail to: Rails.application.secrets.order_email_address, :subject => "Pedido #{checkout.address}"
+    mail to: 'info@pranafactory.com', :subject => "Pedido #{checkout.address}"
   end
 
   private
