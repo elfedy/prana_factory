@@ -4,6 +4,8 @@ class PackagesControllerTest < ActionController::TestCase
   def setup
     @package = packages(:valid_package)
     @category = categories(:valid_category)
+    @admin = admins(:valid_admin)
+    admin_login(@admin)
   end
 
   test "should get new" do

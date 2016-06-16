@@ -4,6 +4,8 @@ class ProductsControllerTest < ActionController::TestCase
   def setup
     @normal_product = products(:valid_normal_product)
     @category = categories(:valid_category)
+    @admin = admins(:valid_admin)
+    admin_login(@admin)
   end
 
   test "should get new" do
