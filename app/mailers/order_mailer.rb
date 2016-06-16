@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default :from => 'info@pranafactory.com'
+  default :from => 'pedidos@pranafactory.com'
 
   include Roadie::Rails::Automatic
 
