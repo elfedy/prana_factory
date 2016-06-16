@@ -26,7 +26,8 @@
 }
 
 #welcome-text strong {
-  text-transform: uppercase;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
 .welcome-button {
@@ -181,13 +182,14 @@
 }
 
 #order {
-  position: fixed;
-  width: 23%;
-  background-color: #eee;
-  margin: 1.2em auto 0.9em 0.9em;
+ position: fixed;
+//  width: 23%;
+  margin: 6.7em auto 0.9em 0.9em;
   padding: 0.5em;
+//  border: 3px solid #000;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px #888;
+  background-color: #ccb993;
+//  box-shadow: 3px 3px 3px #888;
 }
 
 #order-header {
@@ -195,11 +197,12 @@
 }
 
 #order-title {
-  font-size: 1.2em;
+  font-size: 2.1em;
+  color: #000;
   font-weight: bold;
   text-transform: capitalize;
-  border-bottom: 0.5px dotted #000;
-  margin-top: 0.9em;
+  border-bottom: 2px dotted #000;
+  margin-top: 0.5em;
   margin-bottom: 0em;
 }
 
@@ -208,7 +211,7 @@
 }
 
 #order-items {
-  background-color: #ddd;
+  background-color: #fff;
   margin: 0 0 0.7em 0;
   padding: 0.7em 0.9em 0em 0.7em;
   border-radius: 5px;
@@ -217,8 +220,9 @@
 #order-items-header {
   margin-top: 0.7em;
 }
+
 .order-item-title{
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: bold;
 }
 
@@ -228,12 +232,12 @@
 
 
 .order-item {
-  font-size: 0.7em;
+  font-size: 0.9em;
   white-space: nowrap;
 }
 
 .order-item-name {
-  font-size: 0.7em;
+  font-size: 0.9em;
   text-overflow: ellipsis;
 }
 
@@ -241,19 +245,19 @@
 }
 
 #order-total {
-  background-color: #ddd;
+  background-color: #fff;
   margin: 0.7em 0;
   padding: 0.7em 0em 0em 0.1em;
   border-radius: 5px;
 }
 
 #order-item-name-total {
-  font-size: 0.7em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
 #order-item-price-total {
-  font-size: 0.7em;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
 }
@@ -266,7 +270,7 @@
   text-align: center;
   text-transform: capitalize;
   text-decoration: none;
-  font-size: 0.7em;
+  font-size: 1,2em;
   font-weight: bold;
   padding: 0.7em 0.9em;
   max-width: 100%;
@@ -283,12 +287,12 @@
 #order-button {
   display: block;
   color: #fff;
-  background-color: #a94442;
+  background-color: #6d312f;
   border-radius: 5px;
   text-align: center;
   text-transform: capitalize;
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 1.2em;
   font-weight: bold;
   padding: 0.7em 0.9em;
   margin-bottom: 0.7em;
@@ -298,10 +302,10 @@
 }
 
 #order-button:hover, #order-buton:focus {
-  background-color: #bd4340;
+  background-color: #754644;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 992px) {
   .buy-category-title {
     text-align: center;
   }
@@ -316,9 +320,10 @@
   }
 
   #order {
-    position: inherit;
+    position: relative;
     width: 100%;
-    margin-left: 0;
+    margin: 0 0 0 0;
+
   }
 
   #order-button {

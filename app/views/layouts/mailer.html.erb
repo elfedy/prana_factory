@@ -2,9 +2,38 @@
 <html>
   <head>
     <%= stylesheet_link_tag "email" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Nuevo Pedido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body>
-    <%= email_image_tag('PranaFactoryLogo-Crop.png') %>
-    <%= yield %>
+  <body style="margin: 0; padding: 0;">
+    <table border="0" cellpadding="0" cellspacing="0" width=100%>
+      <tr>
+        <td>
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+              <td style="padding-bottom: 10px;">
+                <%= image_tag("email-logo.png", style: "display: block") %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= yield %>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 10px">
+                Equipo Prana Factory
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 15px; font-size: 0.9em; color: #777777">
+                Cualquier consulta escribinos a info@pranafactory.com
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

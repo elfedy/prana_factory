@@ -1,9 +1,87 @@
-<p>Hola <%= @checkout.name %></p>
-
-<p>Tu pedido se está preparando y se entregará en <%= @checkout.address %> el día <%= @checkout.delivery_date %>
-a las <%= @checkout.delivery_time %></p>
-
-<p>Tu pedido:</p>
-<%= render @checkout.line_items %>
-
-<p>Total a pagar: $<%= @checkout.total_price %></p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="padding-top: 10px;">
+      <%= @checkout.name %>, gracias por tu pedido!
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 10px;">
+      La entrega se realizará según los datos ingresados, por favor corroborá que los mismos sean correctos:
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 10px;">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="25%">
+            <u>Dirección:</u>
+          </td>
+          <td>
+            <%= @checkout.address %>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">
+            <u>Día de entrega:</u>
+          </td>
+          <td>
+            <%= @checkout.delivery_date %>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">
+            <u>Franja Horaria:</u>
+          </td>
+          <td>
+            <%= @checkout.delivery_time %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 10px; padding-bottom: 5px;">
+      <u>Tu pedido:</u>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr bgcolor="#6e986f">
+          <th style="padding-top: 3px; padding-bottom: 3px;">
+            Producto
+          </th>
+          <th style="padding-top: 3px; padding-bottom: 3px;">
+            Cantidad
+          </th>
+          <th style="padding-top: 3px; padding-bottom: 3px;">
+            Precio
+          </th>
+        </tr>
+        <% @checkout.line_items.each do |line_item| %>
+          <tr>
+            <td>
+              <%= line_item.identifier %>
+            </td>
+            <td align="center">
+              <%= line_item.quantity %>
+            </td>
+            <td align="center">
+              $<%= line_item.total_price %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 8px;">
+      Total a pagar: <b>$<%= @checkout.total_price %></b>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top: 15px;">
+      Que lo disfrutes!
+    </td>
+  </tr>
+</table>

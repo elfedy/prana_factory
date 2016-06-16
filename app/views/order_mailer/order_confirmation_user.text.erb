@@ -1,7 +1,10 @@
-<Hola <%= @checkout.name %>
+<%= @checkout.name %>, gracias por tu pedido!!
 
-Tu pedido se está preparando y se entregará en <%= @checkout.address %> el día <%= @checkout.delivery_date %>
-a las <%= @checkout.delivery_time %>
+La entrega se realizará según los datos ingresados, por favor corroborá que los mismos sean correctos:
+
+Dirrección: <%= @checkout.address %>
+Día de entrega: <%= @checkout.delivery_date %>
+Franja Horaria <%= @checkout.delivery_time %>
 
 Tu pedido:
 <%= render @checkout.line_items %>
