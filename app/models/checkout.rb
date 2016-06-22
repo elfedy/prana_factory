@@ -3,12 +3,13 @@ class Checkout < ActiveRecord::Base
 
   validates :name, :telephone, :address, :delivery_date, :delivery_time, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX, message: "debe tener un formato válido" }
-  validate :date_is_not_sunday
+  validate :delivery_wday_is_valid
 
   has_many :line_items, :dependent => :destroy
 
   DELIVERY_TIME_OPTIONS = [ "10:00h a 13:00h", "19:00h a 22:00h" ]
   MIN_CHECKOUT_PRICE = 100
+  VALID_DELIVERY_WDAYS = [1, 5, 6]
 
   def add_line_items_from_order(order)
     order.line_items.each do |item|
@@ -21,9 +22,9 @@ class Checkout < ActiveRecord::Base
     line_items.to_a.sum { |item| item.total_price }
   end
 
-  def date_is_not_sunday
-    if delivery_date.present? && delivery_date.wday == 0
-      errors.add(:delivery_date, "no puede ser Domingo")
+  def delivery_wday_is_valid
+    if delivery_date.present? && VALID_DELIVERY_WDAYS.exclude?(delivery_date.wday)
+      errors.add(:delivery_date, "debe ser los días Lunes, Viernes o Sábado")
     end
   end
 
