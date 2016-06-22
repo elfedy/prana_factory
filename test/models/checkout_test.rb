@@ -12,7 +12,7 @@ class CheckoutTest < ActiveSupport::TestCase
                              email: "mail@ejemplo.com",
                              address: "Cucha Cucha 112",
                              telephone: "4433-5555",
-                             delivery_date: valid_delivery_date,
+                             delivery_date: define_base_date,
                              delivery_time: "9:00h a 12:00h")
   end
 
