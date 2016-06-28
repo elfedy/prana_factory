@@ -9,14 +9,16 @@ class Package < ActiveRecord::Base
   belongs_to :category
   has_many :skus, :dependent => :destroy
 
+  delegate :products, :skus, :to => :category, :prefix => true
+
   def identifier
     self.quantity.to_s + self.unit
   end
 
   def create_skus
     if self.valid?
-      self.category.products.each do |product|
-        sku = self.category.skus.create(product_id: product.id, package_id: self.id)
+      self.category_products.each do |product|
+        sku = self.category_skus.create(product_id: product.id, package_id: self.id)
         if product.premium
           sku.price = self.premium_price
         else
@@ -30,7 +32,7 @@ class Package < ActiveRecord::Base
   def update_skus
     if self.valid?
       self.skus.each do |sku|
-        if sku.product.premium
+        if sku.premium
           sku.price = self.premium_price
         else
           sku.price = self.normal_price

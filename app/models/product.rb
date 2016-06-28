@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
   validates :name, format: { with: VALID_NAME_REGEX }
 
   belongs_to :category
+  delegate :packages, :to => :category, :prefix => true, :allow_nil => true
   has_many :skus, :dependent => :destroy
 
   has_attached_file :image, styles: { buy: "100x127", show:"200x254"  }
@@ -15,7 +16,7 @@ class Product < ActiveRecord::Base
 
   def create_skus
     if self.valid?
-      self.category.packages.each do |package|
+      self.category_packages.each do |package|
         sku = self.category.skus.build(product_id: self.id, package_id: package.id)
         if self.premium
           sku.price = package.premium_price
@@ -31,9 +32,9 @@ class Product < ActiveRecord::Base
     if self.valid?
       self.skus.each do |sku|
         if self.premium
-          sku.price = sku.package.premium_price
+          sku.price = sku.package_premium_price
         else
-          sku.price = sku.package.normal_price
+          sku.price = sku.package_normal_price
         end
         sku.save
       end

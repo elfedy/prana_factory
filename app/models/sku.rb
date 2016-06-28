@@ -8,5 +8,9 @@ class Sku < ActiveRecord::Base
   belongs_to :product
   belongs_to :package
 
+  delegate :normal_price, :premium_price, :identifier, :to => :package, :prefix => true
+  delegate :name, :to => :product, :prefix => true
+  delegate :premium, :to => :product
+
   has_many :line_items
 end
