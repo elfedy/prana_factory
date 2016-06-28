@@ -7,5 +7,5 @@ valid_sku_normal_product:
 
 valid_sku_premium_product:
   product: valid_premium_product
-  package: valid_premium_package
+  package: valid_package
   price: 70

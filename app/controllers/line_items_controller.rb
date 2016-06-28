@@ -11,6 +11,10 @@ class LineItemsController < ApplicationController
     end
   end
 
+  #Not implemented yet, must refactor to use ajax version in comprar page
   def destroy
+    @line_item = LineItem.find(params[:id])
+    @product.destroy
+    redirect_to comprar_path
   end
 end
