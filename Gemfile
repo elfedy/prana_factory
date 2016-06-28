@@ -31,6 +31,7 @@ gem 'paperclip', '~> 5.0.0.beta1'
 gem 'aws-sdk', '~> 2.3'
 gem 'roadie-rails', '~> 1.0'
 
+gem 'rails_best_practices'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
