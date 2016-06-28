@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527152027) do
+ActiveRecord::Schema.define(version: 20160628161832) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20160527152027) do
     t.integer  "checkout_id"
   end
 
+  add_index "line_items", ["checkout_id"], name: "index_line_items_on_checkout_id"
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+  add_index "line_items", ["sku_id"], name: "index_line_items_on_sku_id"
+
   create_table "orders", force: :cascade do |t|
     t.integer  "price"
     t.string   "user"
@@ -97,5 +101,9 @@ ActiveRecord::Schema.define(version: 20160527152027) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "skus", ["category_id"], name: "index_skus_on_category_id"
+  add_index "skus", ["package_id"], name: "index_skus_on_package_id"
+  add_index "skus", ["product_id"], name: "index_skus_on_product_id"
 
 end
