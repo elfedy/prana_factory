@@ -46,7 +46,7 @@ The Admin authentication system was built using Rails `has_secure_password metho
 2. Categories and products have names, descriptions and images associated to them.  
 3. A combination of a product and a package within a category defines a sku (unit sold by the company). When a product or package is created, skus are automatically generated for every product or package that already exists within that category.
 
-![user order](![user making an order](https://github.com/elfedy/prana_factory/raw/master/assets/pf_user_order.gif))
+![user order](/assets/pf_user_order.gif?raw=true)
 
 ###Functionalities for users
 
