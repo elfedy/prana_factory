@@ -38,7 +38,7 @@ By logging in, administrators have access to two actions:
 1. Create, update and delete product data that is then shown to the user
 2. View orders that have been successfully issued by users (checkouts)
 
-The Admin authentication system was built using Rails has_secure_password method
+The Admin authentication system was built using Rails `has_secure_password method`
 
 ####Create, Update and Delete product data
 
