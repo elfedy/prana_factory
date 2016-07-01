@@ -46,8 +46,6 @@ The Admin authentication system was built using Rails `has_secure_password metho
 2. Categories and products have names, descriptions and images associated to them.  
 3. A combination of a product and a package within a category defines a sku (unit sold by the company). When a product or package is created, skus are automatically generated for every product or package that already exists within that category.
 
-![user order](https://raw.githubusercontent.com/elfedy/prana_factory/master/app/assets/images/pf_user_order.gif)
-
 ###Functionalities for users
 
 ####View category and product data
@@ -58,6 +56,8 @@ In "Nuestros Productos" page, users can see information about products and categ
 1. By clicking the "Pedido Online" link, users can access a store where they add any of the existing sku to a cart.
 2. By submitting the order, and satisfying certain requirements such as a minimum order price, they are sent to a form page where they fill in information about the order (address, delivery date and time, etc).
 3. When valid data is submited to the form, confirmation emails are sent to the user and the administrator, and the order is stored in the database.
+
+![user order](https://raw.githubusercontent.com/elfedy/prana_factory/master/app/assets/images/pf_user_order.gif)
 
 ##Work and Refactoring to be done
 * Move logic in the controller to the model (Fat Model, Skinny Controller)
