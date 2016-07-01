@@ -30,14 +30,14 @@ Rails.application.configure do
     }
   }
 
-  config.action_mailer.asset_host = "www.pranafactory.com"
-  config.action_mailer.default_url_options = { host: "www.pranafactory.com"}
+  config.action_mailer.asset_host = ENV.fetch("MAILER_ASSET_HOST", "www.example.com")
+  config.action_mailer.default_url_options = ENV.fetch("MAILER_ASSET_HOST", "www.example.com")
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[PRANA FACTORY]-Error- ",
-    :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{federodiriguez.88@gmail.com}
+    :sender_address => %{ENV.fetch("EXCEPTION_NOTIFIER_EMAIL_ADDRESS", "notifier@example.com")},
+    :exception_recipients => %w{ENV.fetch("EXCEPTION_RECIPIENT_EMAIL_ADDRESS", "default@default.com")}
   }
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
