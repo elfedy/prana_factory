@@ -18,6 +18,3 @@
 
 #Ignore default images
 /default_images
-
-#Ignore secrets.yml file
-/config/secrets.yml
