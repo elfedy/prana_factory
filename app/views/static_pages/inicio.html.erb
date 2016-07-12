@@ -1,11 +1,14 @@
-<div class="row">
-  <div class="col-xs-12" id="welcome-body" >
-      <h1 id="welcome-text">Descubrí muchas cosas <strong>ricas</strong></h1>
-  </div>
+<div class="row" id="welcome-body">
   <div class="col-xs-12">
-    <%= link_to "Conocé Nuestros Productos", nuestros_productos_path, :class => "welcome-button"%>
-  </div>
-  <div class="col-xs-12">
-    <%= link_to "Realizá tu Pedido Online", comprar_path, :class => "welcome-button" %>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+          <h1 id="welcome-text">Descubrí muchas cosas <strong>ricas</strong></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4 text-center">
+        <%= link_to "Realizá tu Pedido", comprar_path, :class => "welcome-button" %>
+      </div>
+    </div>
   </div>
 </div>
