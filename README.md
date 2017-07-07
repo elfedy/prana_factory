@@ -1,6 +1,6 @@
-#Prana Factory
+# Prana Factory
 
-##General Information
+## General Information
 Web application written in *Ruby on Rails* for a food company in Argentina. The application serves three primary functions:
 
   1. Be the company's Landing Page
@@ -8,30 +8,30 @@ Web application written in *Ruby on Rails* for a food company in Argentina. The 
   3. Let administrators update the content of the page and see the orders that were made by the users.
 
 The page's language is Spanish.
-The page can be found at www.pranafactory.com
+The page can be found at http://pranafactory.herokuapp.com/
 
-##Technologies
+## Technologies
 
-###Ruby and Rails versions
+### Ruby and Rails versions
  - Ruby 2.1.5
  - Rails 4.2.4
 
-###Gems used for particular functions
+### Gems used for particular functions
  - Paperclip for uploading and managing images associated with products/categories
 
-###Frontend Frameworks:
+### Frontend Frameworks:
   - Bootstrap 3
 
-###Production Environment
+### Production Environment
   - Application hosted on Heroku
   - Images hosted on Amazon S3
   - Puma server
   - PostgreSQL database
   - Sendgrid used for sending emails
 
-##Functionalities
+## Functionalities
 
-###Functionalities for Administrators (Admins)
+### Functionalities for Administrators (Admins)
 
 By logging in, administrators have access to two actions:
 
@@ -40,18 +40,18 @@ By logging in, administrators have access to two actions:
 
 The Admin authentication system was built using Rails `has_secure_password method`
 
-####Create, Update and Delete product data
+#### Create, Update and Delete product data
 
 1. Users can create, update and delete categories. Each category has products and packages in which the products are sold.
 2. Categories and products have names, descriptions and images associated to them.  
 3. A combination of a product and a package within a category defines a sku (unit sold by the company). When a product or package is created, skus are automatically generated for every product or package that already exists within that category.
 
-###Functionalities for users
+### Functionalities for users
 
-####View category and product data
+#### View category and product data
 In "Nuestros Productos" page, users can see information about products and categories.
 
-####Issue orders
+#### Issue orders
 
 1. By clicking the "Pedido Online" link, users can access a store where they add any of the existing sku to a cart.
 2. By submitting the order, and satisfying certain requirements such as a minimum order price, they are sent to a form page where they fill in information about the order (address, delivery date and time, etc).
@@ -59,7 +59,7 @@ In "Nuestros Productos" page, users can see information about products and categ
 
 ![user order](https://raw.githubusercontent.com/elfedy/prana_factory/master/app/assets/images/pf_user_order.gif)
 
-##Work and Refactoring to be done
+## Work and Refactoring to be done
 * Move logic in the controller to the model (Fat Model, Skinny Controller)
 * Add additional tests (Mainly integration) for the Admin functionalities
 * Make the creation of products/packages + skus transactional
